@@ -40,10 +40,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.131"
+            app:layout_constraintHorizontal_bias="0.125"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.061" />
+            app:layout_constraintVertical_bias="0.068" />
 
         <TextView
             android:id="@+id/password"
@@ -55,17 +55,21 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.305"
+            app:layout_constraintHorizontal_bias="0.307"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.255" />
+            app:layout_constraintVertical_bias="0.265" />
 
         <EditText
             android:id="@+id/usernameID"
+            style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
             android:layout_width="307dp"
             android:layout_height="41dp"
+            android:background="#E8E6E6"
             android:ems="10"
             android:inputType="textPersonName"
+            android:shadowColor="#00F8F8F8"
+            android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.622"
@@ -75,10 +79,13 @@
 
         <EditText
             android:id="@+id/passwordD"
+            style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
             android:layout_width="307dp"
             android:layout_height="41dp"
+            android:background="#E8E6E6"
             android:ems="10"
             android:inputType="textPassword"
+            android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.622"

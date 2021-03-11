@@ -104,6 +104,7 @@
 
         <EditText
             android:id="@+id/mailID"
+            style="@android:style/Widget.AutoCompleteTextView"
             android:layout_width="307sp"
             android:layout_height="41dp"
             android:ems="10"
