@@ -12,7 +12,7 @@
         android:id="@+id/forumBtn"
         android:layout_width="117dp"
         android:layout_height="85dp"
-        android:background="#DA8B98"
+        android:background="@drawable/round_button"
         android:backgroundTint="#DA8B98"
         android:text="Forum"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,7 +26,7 @@
         android:id="@+id/historyBtn"
         android:layout_width="117dp"
         android:layout_height="85dp"
-        android:background="#7AC4CC"
+        android:background="@drawable/round_button"
         android:backgroundTint="#7AC4CC"
         android:text="Avalia  e Partilha"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,7 +40,8 @@
         android:id="@+id/button6"
         android:layout_width="117dp"
         android:layout_height="85dp"
-        android:background="#E7BD59"
+        android:background="@drawable/round_button"
+        android:backgroundTint="#E7BD59"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/historyBtn"
@@ -100,18 +101,6 @@
         app:layout_constraintVertical_bias="0.028"
         app:srcCompat="@drawable/logotipo" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="109dp"
-        android:layout_height="91dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.941"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.029"
-        app:srcCompat="@drawable/settings" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="168dp"
@@ -160,5 +149,18 @@
         app:layout_constraintEnd_toEndOf="@+id/imageView8"
         app:layout_constraintHorizontal_bias="0.543"
         app:layout_constraintStart_toStartOf="@+id/imageView8" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="99dp"
+        android:layout_height="98dp"
+        android:background="#00FFFFFF"
+        android:foreground="@drawable/settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.028" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
