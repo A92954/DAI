@@ -9,18 +9,18 @@
 
     <TextView
         android:id="@+id/moreInfoTitle"
-        android:layout_width="329dp"
-        android:layout_height="88dp"
-        android:fontFamily="@font/bangers"
+        android:layout_width="339dp"
+        android:layout_height="63dp"
+        android:fontFamily="@font/chewy"
         android:text="DIZ MAIS SOBRE TI:"
         android:textColor="#000000"
-        android:textSize="50sp"
+        android:textSize="45sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.026" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
@@ -100,6 +100,7 @@
                 android:id="@+id/age"
                 android:layout_width="214dp"
                 android:layout_height="31dp"
+                android:fontFamily="@font/chewy"
                 android:text="QUE IDADE TENHO:"
                 android:textColor="#000000"
                 android:textSize="20sp"
@@ -115,6 +116,7 @@
                 android:layout_width="214dp"
                 android:layout_height="31dp"
                 android:layout_marginTop="112dp"
+                android:fontFamily="@font/chewy"
                 android:text="O QUE QUERO SER:"
                 android:textColor="#000000"
                 android:textSize="20sp"
@@ -130,14 +132,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
         android:layout_width="389dp"
-        android:layout_height="217dp"
+        android:layout_height="257dp"
         android:background="@drawable/round_corners"
         android:backgroundTint="#9FE793"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
-        app:layout_constraintVertical_bias="0.3">
+        app:layout_constraintVertical_bias="0.18">
 
         <ImageView
             android:id="@+id/imageView15"
@@ -172,7 +174,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
             <EditText
                 android:id="@+id/firstParentID"
@@ -201,12 +204,13 @@
                 app:layout_constraintHorizontal_bias="0.509"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.497" />
+                app:layout_constraintVertical_bias="0.455" />
 
             <TextView
                 android:id="@+id/parentName"
                 android:layout_width="248dp"
                 android:layout_height="28dp"
+                android:fontFamily="@font/chewy"
                 android:text="NOMES DOS MEUS PAIS:"
                 android:textColor="#000000"
                 android:textSize="20sp"
@@ -230,12 +234,13 @@
                 app:layout_constraintHorizontal_bias="0.495"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.97" />
+                app:layout_constraintVertical_bias="0.861" />
 
             <TextView
                 android:id="@+id/contact"
                 android:layout_width="238dp"
                 android:layout_height="28dp"
+                android:fontFamily="@font/chewy"
                 android:text="CONTACTO DE UM PAI:"
                 android:textColor="#000000"
                 android:textSize="20sp"
@@ -244,7 +249,7 @@
                 app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.719" />
+                app:layout_constraintVertical_bias="0.663" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -261,16 +266,16 @@
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="70dp"
-        android:layout_height="65dp"
+        android:layout_width="51dp"
+        android:layout_height="46dp"
         android:background="@drawable/round_button"
         android:backgroundTint="#3E3D3D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.014"
+        app:layout_constraintHorizontal_bias="0.016"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.011"
+        app:layout_constraintVertical_bias="0.026"
         app:srcCompat="@drawable/abc_vector_test" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

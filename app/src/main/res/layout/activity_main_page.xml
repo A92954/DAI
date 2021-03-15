@@ -42,7 +42,7 @@
         android:layout_height="85dp"
         android:background="@drawable/round_button"
         android:backgroundTint="#E7BD59"
-        android:text="Button"
+        android:text="Sugere Futuras Atividades"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/historyBtn"
         app:layout_constraintStart_toEndOf="@+id/forumBtn"
