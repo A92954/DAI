@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFE2E2"
+    android:background="#f5f5f5"
     tools:context=".Suggestion">
 
     <ImageButton
@@ -18,7 +18,7 @@
         app:layout_constraintHorizontal_bias="0.019"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.048"
+        app:layout_constraintVertical_bias="0.03000002"
         app:srcCompat="@drawable/abc_vector_test" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,7 +26,7 @@
         android:layout_width="387dp"
         android:layout_height="458dp"
         android:background="@drawable/round_corners"
-        android:backgroundTint="#E7BD59"
+        android:backgroundTint="#FCFC9C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,7 +86,7 @@
             app:layout_constraintHorizontal_bias="0.089"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.867"
+            app:layout_constraintVertical_bias="0.836"
             app:srcCompat="@android:drawable/ic_btn_speak_now" />
 
         <TextView
