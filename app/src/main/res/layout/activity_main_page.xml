@@ -10,52 +10,63 @@
 
     <Button
         android:id="@+id/forumBtn"
-        android:layout_width="117dp"
-        android:layout_height="85dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/round_button"
         android:backgroundTint="#ff8080"
+        android:fontFamily="@font/patrick_hand"
         android:text="Forum"
-        android:textSize="14sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.11"
         app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.484" />
+        app:layout_constraintVertical_bias="0.484"
+        app:layout_constraintWidth_percent="0.27" />
 
     <Button
         android:id="@+id/historyBtn"
-        android:layout_width="117dp"
-        android:layout_height="85dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/round_button"
         android:backgroundTint="#7AC4CC"
+        android:fontFamily="@font/patrick_hand"
         android:text="Avalia  e Partilha"
-        android:textSize="14sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.11"
         app:layout_constraintHorizontal_bias="0.945"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.484" />
+        app:layout_constraintVertical_bias="0.484"
+        app:layout_constraintWidth_percent="0.27" />
 
     <Button
         android:id="@+id/button6"
-        android:layout_width="117dp"
-        android:layout_height="85dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/round_button"
         android:backgroundTint="#ffd24d"
+        android:fontFamily="@font/patrick_hand"
         android:text="Sugere Atividades"
-        android:textSize="14sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/historyBtn"
+        app:layout_constraintHeight_percent="0.11"
         app:layout_constraintStart_toEndOf="@+id/forumBtn"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.484" />
+        app:layout_constraintVertical_bias="0.484"
+        app:layout_constraintWidth_percent="0.27" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
-        android:layout_width="297dp"
-        android:layout_height="226dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.29"
+        app:layout_constraintWidth_percent="0.70"
         android:background="@drawable/round_corner_right"
         android:backgroundTint="#E7BD59"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -68,8 +79,10 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="101dp"
-        android:layout_height="226dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.29"
+        app:layout_constraintWidth_percent="0.26"
         android:background="@drawable/round_corner_left"
         android:backgroundTint="#7AC4CC"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -81,18 +94,20 @@
 
         <TextView
             android:id="@+id/desc_calendar"
-            android:layout_width="73dp"
-            android:layout_height="151dp"
-            android:fontFamily="sans-serif-smallcaps"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/patrick_hand"
             android:text="O que podes fazer este mês"
-            android:textColor="#FFFFFF"
-            android:textSize="22sp"
+            android:textColor="#000000"
+            android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.62"
+            app:layout_constraintHeight_percent="0.60"
+            app:layout_constraintHorizontal_bias="0.66"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.36" />
+            app:layout_constraintVertical_bias="0.43"
+            app:layout_constraintWidth_percent="0.80" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
@@ -120,8 +135,10 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="61dp"
-        android:layout_height="70dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.10"
+        app:layout_constraintWidth_percent="0.15"
         app:layout_constraintBottom_toTopOf="@+id/historyBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.948"
@@ -132,8 +149,10 @@
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="157dp"
-        android:layout_height="100dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintWidth_percent="0.35"
         android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent"
@@ -145,21 +164,25 @@
 
     <TextView
         android:id="@+id/mess_duck"
-        android:layout_width="76dp"
-        android:layout_height="39dp"
-        android:layout_marginBottom="28dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:text="Como está o tempo?"
         android:textColor="#000000"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView8"
         app:layout_constraintEnd_toEndOf="@+id/imageView8"
-        app:layout_constraintHorizontal_bias="0.543"
-        app:layout_constraintStart_toStartOf="@+id/imageView8" />
+        app:layout_constraintHeight_percent="0.06"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.56"
+        app:layout_constraintWidth_percent="0.17" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="99dp"
-        android:layout_height="98dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.10"
+        app:layout_constraintWidth_percent="0.15"
         android:background="#00FFFFFF"
         android:foreground="@drawable/settings"
         app:layout_constraintBottom_toBottomOf="parent"

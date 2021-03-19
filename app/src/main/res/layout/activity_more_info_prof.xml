@@ -11,18 +11,18 @@
 
     <TextView
         android:id="@+id/moreInfoTitle"
-        android:layout_width="339dp"
-        android:layout_height="63dp"
-        android:fontFamily="@font/chewy"
+        android:layout_width="288dp"
+        android:layout_height="61dp"
+        android:fontFamily="@font/amatic_sc_bold"
         android:text="DIZ MAIS SOBRE TI:"
         android:textColor="#000000"
-        android:textSize="45sp"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.975"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.026" />
+        app:layout_constraintVertical_bias="0.001" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
@@ -108,11 +108,11 @@
                 android:id="@+id/age"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:fontFamily="@font/chewy"
+                android:fontFamily="@font/cambay"
+                android:gravity="bottom|center_horizontal"
                 android:text="QUE IDADE TENHO:"
                 android:textColor="#000000"
                 android:textSize="20sp"
-                android:gravity="bottom|center_horizontal"
                 app:layout_constraintBottom_toTopOf="@+id/ageID"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHeight_percent="0.23"
@@ -126,20 +126,20 @@
                 android:id="@+id/profession"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintHeight_percent="0.23"
-                app:layout_constraintWidth_percent="0.80"
-                android:gravity="bottom|center_horizontal"
                 android:layout_marginTop="112dp"
-                android:fontFamily="@font/chewy"
+                android:fontFamily="@font/comfortaa"
+                android:gravity="bottom|center_horizontal"
                 android:text="O QUE QUERO SER:"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/profissionID"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.23"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintWidth_percent="0.80" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -231,19 +231,19 @@
                 android:id="@+id/parentName"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintHeight_percent="0.15"
-                app:layout_constraintWidth_percent="0.68"
+                android:fontFamily="@font/gafata"
                 android:gravity="bottom|center_horizontal"
-                android:fontFamily="@font/chewy"
                 android:text="NOMES DOS MEUS PAIS:"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/firstParentID"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.15"
                 app:layout_constraintHorizontal_bias="0.113"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintWidth_percent="0.68" />
 
             <EditText
                 android:id="@+id/editTextPhone"
@@ -266,7 +266,7 @@
                 android:id="@+id/contact"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:fontFamily="@font/chewy"
+                android:fontFamily="@font/patrick_hand"
                 android:gravity="bottom|center_horizontal"
                 android:text="CONTACTO DE UM PAI:"
                 android:textColor="#000000"

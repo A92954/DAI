@@ -23,8 +23,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
-        android:layout_width="389dp"
-        android:layout_height="217dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.35"
+        app:layout_constraintWidth_percent="0.95"
         android:background="@drawable/round_corners"
         android:backgroundTint="#00cc99"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,8 +37,10 @@
 
         <ImageView
             android:id="@+id/imageView7"
-            android:layout_width="166dp"
-            android:layout_height="184dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.99"
+            app:layout_constraintWidth_percent="0.40"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.025"
@@ -47,8 +51,10 @@
 
         <EditText
             android:id="@+id/nomeID"
-            android:layout_width="199dp"
-            android:layout_height="46dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.20"
+            app:layout_constraintWidth_percent="0.49"
             android:layout_marginStart="12dp"
             android:layout_marginLeft="12dp"
             android:background="#FFFFFF"
@@ -63,8 +69,10 @@
 
         <EditText
             android:id="@+id/districtID"
-            android:layout_width="199dp"
-            android:layout_height="46dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.20"
+            app:layout_constraintWidth_percent="0.49"
             android:layout_marginStart="12dp"
             android:layout_marginLeft="12dp"
             android:background="#FFFFFF"
@@ -79,40 +87,48 @@
 
         <TextView
             android:id="@+id/meuNome"
-            android:layout_width="160dp"
-            android:layout_height="24dp"
-            android:fontFamily="@font/chewy"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/patrick_hand"
+            android:gravity="bottom |center_horizontal"
             android:text="O Meu Nome:"
             android:textColor="#000000"
-            android:textSize="20sp"
+            android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="@+id/nomeID"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.20"
             app:layout_constraintHorizontal_bias="0.196"
             app:layout_constraintStart_toEndOf="@+id/imageView7"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.764" />
+            app:layout_constraintVertical_bias="0.764"
+            app:layout_constraintWidth_percent="0.49" />
 
         <TextView
             android:id="@+id/district"
-            android:layout_width="156dp"
-            android:layout_height="21dp"
-            android:fontFamily="@font/chewy"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/patrick_hand"
+            android:gravity="bottom |center_horizontal"
             android:text="Onde Vivo:"
             android:textColor="#000000"
-            android:textSize="20sp"
+            android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="@+id/districtID"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.20"
             app:layout_constraintHorizontal_bias="0.196"
             app:layout_constraintStart_toEndOf="@+id/imageView7"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.94" />
+            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintWidth_percent="0.49" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout4"
-        android:layout_width="389dp"
-        android:layout_height="217dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.35"
+        app:layout_constraintWidth_percent="0.95"
         android:layout_marginTop="22dp"
         android:background="@drawable/round_corners"
         android:backgroundTint="#00cc99"
@@ -172,14 +188,16 @@
 
             <Button
                 android:id="@+id/moreInfoBtn"
-                android:layout_width="339dp"
-                android:layout_height="56dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.20"
+                app:layout_constraintWidth_percent="0.85"
                 android:background="@drawable/round_button"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/chewy"
+                android:backgroundTint="@color/button_blue"
+                android:fontFamily="@font/patrick_hand"
                 android:lineSpacingExtra=""
                 android:text="Diz Mais Sobre Ti!"
-                android:textColor="#000000"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -190,13 +208,15 @@
 
             <Button
                 android:id="@+id/facilRecBtn"
-                android:layout_width="339dp"
-                android:layout_height="56dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.20"
+                app:layout_constraintWidth_percent="0.85"
                 android:background="@drawable/round_button"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/chewy"
+                android:backgroundTint="@color/button_blue"
+                android:fontFamily="@font/patrick_hand"
                 android:text="Reconhecimento Facial"
-                android:textColor="#000000"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -222,13 +242,14 @@
         android:id="@+id/textView3"
         android:layout_width="145dp"
         android:layout_height="60dp"
-        android:fontFamily="@font/chewy"
+        android:fontFamily="@font/amatic_sc_bold"
         android:text="PERFIL"
         android:textColor="#000000"
-        android:textSize="45sp"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.026" />
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
