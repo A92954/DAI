@@ -40,7 +40,7 @@ public class MainPage extends AppCompatActivity {
         historyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(), Forum.class);
+                Intent startIntent = new Intent(getApplicationContext(), History.class);
                 startActivity(startIntent);
             }
         });
