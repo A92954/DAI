@@ -45,7 +45,7 @@
         app:layout_constraintWidth_percent="0.27" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/suggestionBtn"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/round_button"
@@ -76,6 +76,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.963">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/activList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alwaysDrawnWithCache="false"
+            android:animateLayoutChanges="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:itemCount="0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -100,9 +111,10 @@
             android:text="O que podes fazer este mês"
             android:textColor="#000000"
             android:textSize="25sp"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.60"
+            app:layout_constraintHeight_percent="0.99"
             app:layout_constraintHorizontal_bias="0.66"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -178,7 +190,7 @@
         app:layout_constraintWidth_percent="0.17" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/profileBtn"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintHeight_percent="0.10"

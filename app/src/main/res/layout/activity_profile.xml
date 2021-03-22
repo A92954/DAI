@@ -8,7 +8,7 @@
     tools:context=".Profile">
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/return3Btn"
         android:layout_width="51dp"
         android:layout_height="46dp"
         android:background="@drawable/round_button"
@@ -90,7 +90,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:fontFamily="@font/patrick_hand"
-            android:gravity="bottom |center_horizontal"
+            android:gravity="bottom|center_horizontal"
             android:text="O Meu Nome:"
             android:textColor="#000000"
             android:textSize="25sp"
@@ -108,7 +108,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:fontFamily="@font/patrick_hand"
-            android:gravity="bottom |center_horizontal"
+            android:gravity="bottom|center_horizontal"
             android:text="Onde Vivo:"
             android:textColor="#000000"
             android:textSize="25sp"
@@ -195,7 +195,6 @@
                 android:background="@drawable/round_button"
                 android:backgroundTint="@color/button_blue"
                 android:fontFamily="@font/patrick_hand"
-                android:lineSpacingExtra=""
                 android:text="Diz Mais Sobre Ti!"
                 android:textColor="@color/white"
                 android:textSize="20sp"
@@ -232,10 +231,10 @@
         android:layout_height="78dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.972"
+        app:layout_constraintVertical_bias="0.99"
         app:srcCompat="@drawable/logotipo" />
 
     <TextView
