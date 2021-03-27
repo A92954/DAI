@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageButton;
 
@@ -24,6 +25,7 @@ public class MainPage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent startIntent = new Intent(getApplicationContext(), Forum.class);
                 startActivity(startIntent);
+                overridePendingTransition(R.anim.go_up,R.anim.go_down);
             }
         });
 
