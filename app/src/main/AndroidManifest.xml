@@ -11,21 +11,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
-        <activity android:name=".History"></activity>
-        <activity android:name=".Forum" />
-        <activity android:name=".ActiDesc" />
-        <activity android:name=".Suggestion" />
-        <activity android:name=".MoreInfoProf" />
-        <activity android:name=".Profile" />
+        <activity android:name=".History"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Forum"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ActiDesc" android:screenOrientation="portrait"/>
+        <activity android:name=".Suggestion" android:screenOrientation="portrait"/>
+        <activity android:name=".MoreInfoProf" android:screenOrientation="portrait"/>
+        <activity android:name=".Profile" android:screenOrientation="portrait"/>
         <activity android:name=".MainPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            android:screenOrientation="portrait"
         </activity>
-        <activity android:name=".Register" />
-        <activity android:name=".Login" />
+        <activity android:name=".Register"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Login"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="preloaded_fonts"

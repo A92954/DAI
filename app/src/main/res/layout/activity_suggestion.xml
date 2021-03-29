@@ -55,20 +55,20 @@
             android:id="@+id/textView4"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.13"
-            app:layout_constraintWidth_percent="0.65"
             android:layout_marginEnd="12dp"
             android:layout_marginRight="12dp"
             android:fontFamily="@font/patrick_hand"
-            android:text="Deixa Aqui as Tuas Ideias de Atividades :)"
+            android:text="Deixa Aqui as Tuas Ideias de Atividades "
             android:textColor="#000000"
             android:textSize="26sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageView18"
+            app:layout_constraintHeight_percent="0.13"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.043" />
+            app:layout_constraintVertical_bias="0.043"
+            app:layout_constraintWidth_percent="0.65" />
 
         <EditText
             android:id="@+id/textBoxSuggestionID"
@@ -77,31 +77,38 @@
             android:background="@drawable/round_corners"
             android:backgroundTint="@color/white"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:fontFamily="@font/patrick_hand"
+            android:gravity="top"
+            android:hint="Escreve aqui..."
+            android:inputType="textMultiLine"
+            android:paddingLeft="8sp"
+            android:paddingTop="8sp"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.29"
+            app:layout_constraintHorizontal_bias="0.487"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.26999998"
+            app:layout_constraintVertical_bias="0.282"
             app:layout_constraintWidth_percent="0.90" />
 
         <Button
             android:id="@+id/saveSendBtn"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.11"
-            app:layout_constraintWidth_percent="0.35"
             android:background="@drawable/round_button"
             android:backgroundTint="@color/button_blue"
             android:text="Guardar e Enviar"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.928"
+            app:layout_constraintHeight_percent="0.11"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.96" />
+            app:layout_constraintVertical_bias="0.967"
+            app:layout_constraintWidth_percent="0.35" />
 
         <ImageView
             android:id="@+id/imageView32"
@@ -110,10 +117,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.29"
-            app:layout_constraintHorizontal_bias="0.457"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.741"
+            app:layout_constraintVertical_bias="0.749"
             app:layout_constraintWidth_percent="0.45"
             app:srcCompat="@drawable/obrigado" />
 
@@ -137,16 +144,16 @@
         android:id="@+id/titleSuggestion"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.08"
-        app:layout_constraintWidth_percent="0.78"
         android:fontFamily="@font/patrick_hand"
         android:text="Caixa de Sugestões"
         android:textColor="#000000"
-        android:textSize="45sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.08"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.027" />
+        app:layout_constraintVertical_bias="0.027"
+        app:layout_constraintWidth_percent="0.78" />
 </androidx.constraintlayout.widget.ConstraintLayout>

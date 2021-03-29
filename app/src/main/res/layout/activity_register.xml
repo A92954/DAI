@@ -4,13 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fundo"
     tools:context=".Register">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:background="@drawable/fundo"></LinearLayout>
 
     <ImageView
         android:id="@+id/imageView4"
@@ -25,8 +20,10 @@
         app:srcCompat="@drawable/logotipo" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="363dp"
-        android:layout_height="503dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.70"
+        app:layout_constraintWidth_percent="0.80"
         android:background="@drawable/round_corners"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,116 +33,124 @@
         app:layout_constraintVertical_bias="0.81">
 
         <TextView
-            android:id="@+id/infor"
-            android:layout_width="251dp"
-            android:layout_height="102dp"
-            android:autoText="false"
-            android:fontFamily="@font/patrick_hand"
-            android:text="INSERE O MAIL DOS TEUS PAIS"
-            android:textColor="#000000"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.515"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.066" />
-
-        <TextView
             android:id="@+id/mail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/patrick_hand"
             android:text="Email"
             android:textColor="#2A3F77"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.155"
+            app:layout_constraintHeight_percent="0.06"
+            app:layout_constraintHorizontal_bias="0.182"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.32" />
+            app:layout_constraintVertical_bias="0.124"
+            app:layout_constraintWidth_percent="0.50" />
 
         <TextView
             android:id="@+id/utilizador"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/patrick_hand"
             android:text="Utilizador"
             android:textColor="#2A3F77"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.181"
+            app:layout_constraintHeight_percent="0.06"
+            app:layout_constraintHorizontal_bias="0.182"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.498" />
+            app:layout_constraintVertical_bias="0.299"
+            app:layout_constraintWidth_percent="0.50" />
 
         <TextView
             android:id="@+id/pass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Palavra-Secreta"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/patrick_hand"
+            android:text="Password"
             android:textColor="#2A3F77"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.247"
+            app:layout_constraintHeight_percent="0.06"
+            app:layout_constraintHorizontal_bias="0.227"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.67" />
+            app:layout_constraintVertical_bias="0.49"
+            app:layout_constraintWidth_percent="0.60" />
 
         <EditText
             android:id="@+id/mailID"
             style="@android:style/Widget.AutoCompleteTextView"
-            android:layout_width="307sp"
-            android:layout_height="41dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@drawable/round_corners"
             android:backgroundTint="#cce4ff"
             android:ems="10"
+            android:fontFamily="@font/patrick_hand"
+            android:hint="Insere o E-mail dos teus pais"
             android:inputType="textEmailAddress"
             android:paddingLeft="8sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.622"
+            app:layout_constraintHeight_percent="0.07"
+            app:layout_constraintHorizontal_bias="0.347"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.395" />
+            app:layout_constraintVertical_bias="0.188"
+            app:layout_constraintWidth_percent="0.80" />
 
         <EditText
             android:id="@+id/userID"
-            android:layout_width="307sp"
-            android:layout_height="41dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@drawable/round_corners"
             android:backgroundTint="#cce4ff"
             android:ems="10"
+            android:fontFamily="@font/patrick_hand"
+            android:hint="Insere um username"
             android:inputType="textPersonName"
             android:paddingLeft="8sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.62"
+            app:layout_constraintHeight_percent="0.07"
+            app:layout_constraintHorizontal_bias="0.347"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.576" />
+            app:layout_constraintVertical_bias="0.367"
+            app:layout_constraintWidth_percent="0.80" />
 
         <EditText
             android:id="@+id/passID"
-            android:layout_width="307sp"
-            android:layout_height="41dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@drawable/round_corners"
             android:backgroundTint="#cce4ff"
             android:ems="10"
+            android:fontFamily="@font/patrick_hand"
+            android:hint="Insere uma password"
             android:inputType="textPassword"
             android:paddingLeft="8sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.62"
+            app:layout_constraintHeight_percent="0.07"
+            app:layout_constraintHorizontal_bias="0.347"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.753" />
+            app:layout_constraintVertical_bias="0.559"
+            app:layout_constraintWidth_percent="0.80" />
 
         <Button
             android:id="@+id/button"
-            android:layout_width="269dp"
-            android:layout_height="69dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@drawable/round_button"
             android:text="Registar"
             android:textColor="#FFFFFF"
@@ -154,8 +159,10 @@
             app:backgroundTint="#2A3F77"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.12"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.962" />
+            app:layout_constraintVertical_bias="0.967"
+            app:layout_constraintWidth_percent="0.50" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

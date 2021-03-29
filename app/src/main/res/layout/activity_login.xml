@@ -4,123 +4,141 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fundo"
     tools:context=".Login">
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/fundo"
-        android:orientation="vertical"></LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="352dp"
-        android:layout_height="486dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/round_corners"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHeight_percent="0.70"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.81">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.882"
+        app:layout_constraintWidth_percent="0.80">
 
         <TextView
             android:id="@+id/username"
-            android:layout_width="109dp"
-            android:layout_height="31dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/patrick_hand"
             android:text="Utilizador"
             android:textColor="#2A3F77"
-            android:textSize="24sp"
+            android:textSize="28sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.149"
+            app:layout_constraintHeight_percent="0.06"
+            app:layout_constraintHorizontal_bias="0.125"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.068" />
+            app:layout_constraintVertical_bias="0.072"
+            app:layout_constraintWidth_percent="0.50" />
 
         <TextView
             android:id="@+id/password"
-            android:layout_width="253dp"
-            android:layout_height="33dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/patrick_hand"
             android:text="Palavra-Passe"
             android:textColor="#2A3F77"
-            android:textSize="24sp"
+            android:textSize="28sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.355"
+            app:layout_constraintHeight_percent="0.06"
+            app:layout_constraintHorizontal_bias="0.125"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.265" />
+            app:layout_constraintVertical_bias="0.236"
+            app:layout_constraintWidth_percent="0.50" />
 
         <EditText
             android:id="@+id/usernameID"
             style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
-            android:layout_width="307dp"
-            android:layout_height="41dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@drawable/round_corners"
             android:backgroundTint="#cce4ff"
             android:ems="10"
+            android:fontFamily="@font/patrick_hand"
+            android:hint="Utilizador"
             android:inputType="textPersonName"
             android:paddingLeft="12sp"
-            android:hint="Utilizador"
             android:shadowColor="#00F8F8F8"
             android:textColor="#000000"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.08"
+            app:layout_constraintHorizontal_bias="0.242"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.137" />
+            app:layout_constraintVertical_bias="0.138"
+            app:layout_constraintWidth_percent="0.80" />
 
         <EditText
             android:id="@+id/passwordD"
             style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
-            android:layout_width="307dp"
-            android:layout_height="41dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@drawable/round_corners"
             android:backgroundTint="#cce4ff"
             android:ems="10"
+            android:fontFamily="@font/patrick_hand"
             android:hint="Palavre-Passe"
             android:inputType="textPassword"
             android:paddingLeft="12sp"
             android:textColor="#000000"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.08"
+            app:layout_constraintHorizontal_bias="0.242"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.342" />
+            app:layout_constraintVertical_bias="0.306"
+            app:layout_constraintWidth_percent="0.80" />
 
         <Button
             android:id="@+id/registerBtn"
-            android:layout_width="119dp"
-            android:layout_height="55dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@drawable/round_button"
+            android:fontFamily="@font/patrick_hand"
             android:text="Registo"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             app:backgroundTint="#2A3F77"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.12"
             app:layout_constraintHorizontal_bias="0.117"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.915" />
+            app:layout_constraintVertical_bias="0.915"
+            app:layout_constraintWidth_percent="0.40" />
 
         <Button
             android:id="@+id/loginBtn"
-            android:layout_width="119dp"
-            android:layout_height="55dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@drawable/round_button"
+            android:fontFamily="@font/patrick_hand"
             android:text="Login"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             app:backgroundTint="#2A3F77"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.12"
             app:layout_constraintHorizontal_bias="0.87"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.915" />
+            app:layout_constraintVertical_bias="0.915"
+            app:layout_constraintWidth_percent="0.40" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
