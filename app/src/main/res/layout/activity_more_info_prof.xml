@@ -100,7 +100,7 @@
                 android:backgroundTint="@color/white"
                 android:ems="10"
                 android:fontFamily="@font/patrick_hand"
-                android:inputType="number"
+                android:inputType="text"
                 android:paddingLeft="8sp"
                 android:textColor="#252525"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -109,7 +109,7 @@
                 app:layout_constraintHorizontal_bias="0.056"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.636"
+                app:layout_constraintVertical_bias="0.596"
                 app:layout_constraintWidth_percent="0.68" />
 
             <TextView
@@ -145,7 +145,7 @@
                 app:layout_constraintHorizontal_bias="0.056"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.46"
+                app:layout_constraintVertical_bias="0.416"
                 app:layout_constraintWidth_percent="0.68" />
 
             <ImageView
