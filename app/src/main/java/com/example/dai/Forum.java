@@ -22,7 +22,6 @@ public class Forum extends AppCompatActivity {
             public void onClick(View v) {
                 Intent startIntent = new Intent(getApplicationContext(), MainPage.class);
                 startActivity(startIntent);
-                overridePendingTransition(R.anim.go_up,R.anim.go_down);
             }
         });
 
@@ -35,6 +34,5 @@ public class Forum extends AppCompatActivity {
     }
     public void onBackPressed(){
         super.onBackPressed();
-        overridePendingTransition(R.anim.go_up,R.anim.go_down);
     }
 }

@@ -103,7 +103,7 @@
             app:layout_constraintWidth_percent="0.80" />
 
         <Button
-            android:id="@+id/registerBtn"
+            android:id="@+id/registBtn"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/round_button"

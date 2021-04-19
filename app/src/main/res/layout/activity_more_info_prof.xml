@@ -11,8 +11,8 @@
 
     <TextView
         android:id="@+id/moreInfoTitle"
-        android:layout_width="288dp"
-        android:layout_height="61dp"
+        android:layout_width="287dp"
+        android:layout_height="84dp"
         android:fontFamily="@font/amatic_sc_bold"
         android:text="DIZ MAIS SOBRE TI:"
         android:textColor="#000000"

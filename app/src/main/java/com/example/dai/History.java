@@ -1,20 +1,18 @@
 package com.example.dai;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.Display;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
+import android.widget.ImageView;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class History extends AppCompatActivity {
     Dialog myDialog;
@@ -41,17 +39,19 @@ public class History extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void showPopup(View v){
-        TextView txtclose;
         Button btn;
         myDialog.setContentView(R.layout.popup_acti);
         btn = (Button) myDialog.findViewById(R.id.btn);
         myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         myDialog.show();
-        Display display =((WindowManager)getSystemService(History.WINDOW_SERVICE)).getDefaultDisplay();
-        int width = display.getWidth();
-        int height=display.getHeight();
+        ImageView leavePopbtn = (ImageView) myDialog.findViewById(R.id.leavePopbtn);
+        leavePopbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDialog.dismiss();
+            }
+        });
 
-        myDialog.getWindow().setLayout((7*width)/7,(5*height)/5);
     }
 
 }
