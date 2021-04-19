@@ -29,7 +29,6 @@ import com.loopj.android.http.ResponseHandlerInterface;
 
 import java.io.File;
 import java.io.IOException;
-
 import java.util.Locale;
 
 import cz.msebera.android.httpclient.Header;

@@ -34,13 +34,14 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentSkipListMap;
-//import java.util.concurrent.ConcurrentSkipList;
 
 import cz.msebera.android.httpclient.HttpEntity;
 import cz.msebera.android.httpclient.client.entity.UrlEncodedFormEntity;
 import cz.msebera.android.httpclient.client.utils.URLEncodedUtils;
 import cz.msebera.android.httpclient.message.BasicNameValuePair;
 import cz.msebera.android.httpclient.protocol.HTTP;
+
+//import java.util.concurrent.ConcurrentSkipList;
 
 /**
  * A collection of string request parameters or files to send along with requests made from an

@@ -31,7 +31,6 @@ import com.loopj.android.http.ResponseHandlerInterface;
 import com.loopj.android.http.sample.util.FileUtil;
 
 import java.io.File;
-
 import java.util.Locale;
 
 import cz.msebera.android.httpclient.Header;

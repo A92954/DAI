@@ -20,9 +20,9 @@ package com.loopj.android.http.sample;
 
 import android.util.Log;
 
-import java.util.Locale;
-
 import com.loopj.android.http.RequestHandle;
+
+import java.util.Locale;
 
 public class CancelRequestHandleSample extends ThreadingTimeoutSample {
 

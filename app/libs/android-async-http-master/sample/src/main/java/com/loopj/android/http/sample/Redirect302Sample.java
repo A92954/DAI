@@ -24,10 +24,10 @@ import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 
+import java.util.Locale;
+
 import cz.msebera.android.httpclient.client.HttpClient;
 import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
-
-import java.util.Locale;
 
 public class Redirect302Sample extends GetSample {
 
