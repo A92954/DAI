@@ -152,6 +152,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/round_button"
+            android:fontFamily="@font/patrick_hand"
             android:text="Registar"
             android:textColor="#FFFFFF"
             android:textSize="24sp"

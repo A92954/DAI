@@ -72,6 +72,7 @@ public class MainPage extends AppCompatActivity {
         //END OF BUTTON SECTION
 
         //CALENDAR
+        /*
        activList = (ListView) findViewById(R.id.activList);
         calendarLayout = (NestedScrollView) findViewById(R.id.calendarLayout);
 
@@ -82,7 +83,7 @@ public class MainPage extends AppCompatActivity {
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                 new fetchData().execute();
             }
-        });
+        });*/
         //END CALENDAR
 
     }
