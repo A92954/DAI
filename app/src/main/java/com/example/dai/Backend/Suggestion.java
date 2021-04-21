@@ -1,4 +1,4 @@
-package Backend;
+package com.example.dai.Backend;
 
 public class Suggestion {
     private int id_suggestion;
