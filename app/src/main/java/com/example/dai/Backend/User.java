@@ -1,16 +1,30 @@
-package Backend;
+package com.example.dai.Backend;
 
 public class User {
+    private int id_user;
     private String username;
     private String password;
     private String e_mail;
 
     public User() {}
 
+    public User(String e_mail, int id_user) {
+        this.id_user = id_user;
+        this.e_mail = e_mail;
+    }
+
     public User(String username, String password, String e_mail) {
         this.username = username;
         this.password = password;
         this.e_mail = e_mail;
+    }
+
+    public int getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
 
     public String getUsername() {

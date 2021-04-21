@@ -8,12 +8,17 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.dai.Backend.Children;
+import com.example.dai.Backend.SessionManagement;
+import com.example.dai.Backend.User;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
-import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -44,7 +49,20 @@ public class Login extends AppCompatActivity {
         username = (EditText)findViewById(R.id.usernameID);
         password = (EditText)findViewById(R.id.passwordD);
         login = (Button)findViewById(R.id.loginBtn);
+
+        SessionManagement session = new SessionManagement(Login.this);
+        int userID = session.getSession();
+
+        if (userID != -1) {
+            Intent intent = new Intent(Login.this, com.example.dai.MainPage.class);
+            startActivity(intent);
+            finish();
+        } else {
+
+        }
+
         login.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 u = username.getText().toString();
@@ -56,8 +74,25 @@ public class Login extends AppCompatActivity {
                 client = new AsyncHttpClient();
                 client.post(URL, params, new JsonHttpResponseHandler() {
                     @Override
-                    public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                         super.onSuccess(statusCode, headers, response);
+
+                        String email = "";
+                        int id_user = 0, id_child = 0;
+
+                        try {
+                            email = response.getString("email");
+                            id_user = response.getInt("id_user");
+                            id_child = response.getInt("id_child");
+                        } catch (JSONException exc) {
+                            exc.printStackTrace();
+                        }
+
+                        User us = new User(email, id_user);
+                        Children ch = new Children(id_child);
+                        SessionManagement session = new SessionManagement(Login.this);
+                        session.saveSession(us, ch);
+
                         Toast.makeText(Login.this, "Login Success" +response, Toast.LENGTH_SHORT).show();
                     }
 

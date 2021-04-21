@@ -14,6 +14,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -25,6 +26,7 @@ public class Register extends AppCompatActivity {
     RequestParams params;
     AsyncHttpClient client;
     String URL = "http://93.108.170.117:8080/DAI-end/register";
+    private static final String TAG = "Register";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class Register extends AppCompatActivity {
         username = (EditText) findViewById(R.id.userID);
         password = (EditText) findViewById(R.id.passID);
         submit = (Button) findViewById(R.id.registerBtn);
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,14 +45,16 @@ public class Register extends AppCompatActivity {
                 p = password.getText().toString();
 
                 params = new RequestParams();
-                params.put("k1", e);
-                params.put("k2", u);
-                params.put("k3", p);
+                params.put("email", e);
+                params.put("username", u);
+                params.put("password", p);
                 client = new AsyncHttpClient();
+
                 client.post(URL, params, new JsonHttpResponseHandler() {
                     @Override
-                    public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                         super.onSuccess(statusCode, headers, response);
+                        System.out.println(response.toString());
                         Toast.makeText(Register.this, "Submit Success" +response, Toast.LENGTH_SHORT).show();
                     }
 
