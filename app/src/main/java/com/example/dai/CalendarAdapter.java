@@ -1,52 +1,56 @@
 package com.example.dai;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
-import java.util.ArrayList;
+
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
 
 
-public class CalendarAdapter extends BaseAdapter{
-    Context context;
-    ArrayList<CalendarModel> calendarList;
 
-    public CalendarAdapter(Context context, ArrayList<CalendarModel> calendarList){
+public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHolder> {
+
+    private Context context;
+    private List<CalendarModel> list;
+
+    public CalendarAdapter(Context context, List<CalendarModel> list) {
         this.context = context;
-        this.calendarList = calendarList;
-    }
-
-
-    @Override
-    public int getCount() {
-        return 0;
+        this.list = list;
     }
 
     @Override
-    public Object getItem(int position) {
-        return null;
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(context).inflate(R.layout.calendar_acti, parent, false);
+        return new ViewHolder(v);
     }
 
     @Override
-    public long getItemId(int position) {
-        return 0;
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        CalendarModel calendar = list.get(position);
+
+        holder.textDay.setText(calendar.getDay());
+        holder.textActi.setText(calendar.getActi_name());
+
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView ==  null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.calendar_acti, parent, false);
+    public int getItemCount() {
+        return list.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView textDay, textActi;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+
+            textDay = itemView.findViewById(R.id.dayID);
+            textActi = itemView.findViewById(R.id.actiNameID);
         }
-        TextView actiName, day;
-        actiName = (TextView) convertView.findViewById(R.id.actiNameID);
-        day = (TextView) convertView.findViewById(R.id.dayID);
-        actiName.setText(calendarList.get(position).getActi_name());
-        day.setText(calendarList.get(position).getDay());
-
-        return convertView;
-    }
     }
 
+}

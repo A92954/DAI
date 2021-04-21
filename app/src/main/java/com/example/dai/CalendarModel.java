@@ -4,6 +4,15 @@ public class CalendarModel {
     String day;
     String acti_name;
 
+    public CalendarModel(){
+
+    }
+
+    public CalendarModel(String day, String acti_name){
+        this.day = day;
+        this.acti_name = acti_name;
+    }
+
     public String getDay() {
         return day;
     }

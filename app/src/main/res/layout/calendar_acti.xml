@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/dayID"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:layout_marginTop="10sp"
+        android:layout_marginLeft="10sp"
         android:background="@drawable/circle"
         android:backgroundTint="#2A3F77"
         android:fontFamily="@font/patrick_hand"
@@ -28,10 +31,12 @@
 
     <TextView
         android:id="@+id/actiNameID"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="250sp"
+        android:layout_height="60sp"
         android:background="@drawable/round_corners"
         android:backgroundTint="#df2A3F77"
+        android:layout_marginTop="-70sp"
+        android:layout_marginLeft="130sp"
         android:fontFamily="@font/patrick_hand"
         android:gravity="center"
         android:text="Actividade "
@@ -45,4 +50,4 @@
         app:layout_constraintVertical_bias="0.060000002"
         app:layout_constraintWidth_percent="0.6" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
