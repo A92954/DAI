@@ -44,9 +44,9 @@ public class Profile extends AppCompatActivity {
 
         int id_child = session.getID_CHILD();
 
-        client = new AsyncHttpClient();
+        //client = new AsyncHttpClient();
 
-        String URL = "http://93.108.170.117:8080/DAI-end/profile1?id_child=" +id_child;
+        //String URL = "http://93.108.170.117:8080/DAI-end/profile1?id_child=" +id_child;
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,11 +58,11 @@ public class Profile extends AppCompatActivity {
                 params.put("child_name", n);
                 params.put("address", m);
 
-                //client = new AsyncHttpClient();
+                client = new AsyncHttpClient();
 
                 //Ir buscar a session
 
-                //String URL = "http://93.108.170.117:8080/DAI-end/profile1?id_child=1";
+                String URL = "http://93.108.170.117:8080/DAI-end/profile1?id_child=1";
 
                 client.put(URL, params, new JsonHttpResponseHandler() {
                     @Override
