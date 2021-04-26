@@ -1,37 +1,63 @@
 package com.example.dai;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.widget.NestedScrollView;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.android.gms.security.ProviderInstaller;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainPage extends AppCompatActivity {
 
-    ListView activList;
-    ArrayList<CalendarModel> calendarList;
-    NestedScrollView calendarLayout;
+    private RecyclerView mList;
+
+    private LinearLayoutManager linearLayoutManager;
+    private DividerItemDecoration dividerItemDecoration;
+    private List<CalendarModel> movieList;
+    private RecyclerView.Adapter adapter;
+    private String url = "https://93.108.170.117:8080/DAI-end/current";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
+        mList = findViewById(R.id.activList);
 
+        movieList = new ArrayList<>();
+        adapter = new CalendarAdapter(getApplicationContext(), movieList);
+
+        linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        dividerItemDecoration = new DividerItemDecoration(mList.getContext(), linearLayoutManager.getOrientation());
+
+        mList.setHasFixedSize(true);
+        mList.setLayoutManager(linearLayoutManager);
+        mList.addItemDecoration(dividerItemDecoration);
+        mList.setAdapter(adapter);
+
+        updateAndroidSecurityProvider();
+        getData();
 
         //BUTTON SECTION
         Button forumBtn = (Button) findViewById(R.id.forumBtn);
@@ -73,86 +99,50 @@ public class MainPage extends AppCompatActivity {
 
         //CALENDAR
 
-       activList = (ListView) findViewById(R.id.activList);
-        calendarLayout = (NestedScrollView) findViewById(R.id.calendarLayout);
 
-        calendarList = new ArrayList<>();
-        new fetchData().execute();
-        calendarLayout.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                new fetchData().execute();
-            }
-        });
         //END CALENDAR
 
     }
 
 
 
-    public class fetchData extends AsyncTask<String, String, String> {
+    private void getData() {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
 
-        @Override
-        public void onPreExecute() {
-            super .onPreExecute();
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject jsonObject = response.getJSONObject(i);
 
-        }
+                        CalendarModel calendar = new CalendarModel();
+                        calendar.setDay(jsonObject.getString("day"));
+                        calendar.setActi_name(jsonObject.getString("name"));
 
-        @Override
-        protected String doInBackground(String... params) {
-            calendarList.clear();
-            String result = null;
-            try {
-                URL url = new URL("http://93.108.170.117:8080/DAI-end/current");
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.connect();
-
-                if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                    InputStreamReader inputStreamReader = new InputStreamReader(conn.getInputStream());
-                    BufferedReader reader = new BufferedReader(inputStreamReader);
-                    StringBuilder stringBuilder = new StringBuilder();
-                    String temp;
-
-                    while ((temp = reader.readLine()) != null) {
-                        stringBuilder.append(temp);
+                        movieList.add(calendar);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        progressDialog.dismiss();
                     }
-                    result = stringBuilder.toString();
-                }else  {
-                    result = "error";
                 }
-
-            } catch (Exception  e) {
-                e.printStackTrace();
+                adapter.notifyDataSetChanged();
+                progressDialog.dismiss();
             }
-            return result;
-        }
-
-        @Override
-        public void onPostExecute(String s) {
-            super .onPostExecute(s);
-
-            try {
-                //JSONObject object = new JSONObject(s);
-                JSONArray array = new JSONArray();
-
-                for (int i = 0; i < array.length(); i++) {
-
-                    JSONObject jsonObject = array.getJSONObject(i);
-                    String day = jsonObject.getString("day");
-                    String acti_name = jsonObject.getString("name");
-
-                    CalendarModel model = new CalendarModel();
-                    model.setDay(day);
-                    model.setActi_name(acti_name);
-                    calendarList.add(model);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("Volley", error.toString());
+                progressDialog.dismiss();
             }
+        });
 
-            CalendarAdapter adapter = new CalendarAdapter(MainPage.this, calendarList);
-            activList.setAdapter(adapter);
-
-        }
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jsonArrayRequest);
     }
+    private void updateAndroidSecurityProvider() { try { ProviderInstaller.installIfNeeded(this); } catch (Exception e) { e.getMessage(); } }
 }
+
+
