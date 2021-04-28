@@ -18,8 +18,6 @@ public class Login extends AppCompatActivity {
     RequestParams params;
     String URL = "http://93.108.170.117:8080/DAI-end/login";
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
