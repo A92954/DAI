@@ -104,8 +104,6 @@ public class MainPage extends AppCompatActivity {
 
     }
 
-
-
     private void getData() {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
