@@ -1,7 +1,10 @@
 package com.example.dai;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,36 +31,42 @@ import java.util.List;
 
 public class MainPage extends AppCompatActivity {
 
-    private RecyclerView mList;
+    private RecyclerView activList;
 
     private LinearLayoutManager linearLayoutManager;
     private DividerItemDecoration dividerItemDecoration;
-    private List<CalendarModel> movieList;
+    private List<CalendarModel> calendarList;
     private RecyclerView.Adapter adapter;
-    private String url = "https://93.108.170.117:8080/DAI-end/current";
-
+    private String url = "http://93.108.170.117:8080/DAI-end/current";
+    Dialog loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
-        mList = findViewById(R.id.activList);
 
-        movieList = new ArrayList<>();
-        adapter = new CalendarAdapter(getApplicationContext(), movieList);
+
+        //BEGIN CALENDAR
+        activList = findViewById(R.id.activList);
+
+        calendarList = new ArrayList<>();
+        adapter = new CalendarAdapter(getApplicationContext(), calendarList);
 
         linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        dividerItemDecoration = new DividerItemDecoration(mList.getContext(), linearLayoutManager.getOrientation());
+        dividerItemDecoration = new DividerItemDecoration(activList.getContext(), linearLayoutManager.getOrientation());
 
-        mList.setHasFixedSize(true);
-        mList.setLayoutManager(linearLayoutManager);
-        mList.addItemDecoration(dividerItemDecoration);
-        mList.setAdapter(adapter);
+
+        activList.setHasFixedSize(true);
+        activList.setLayoutManager(linearLayoutManager);
+        activList.addItemDecoration(dividerItemDecoration);
+        activList.setAdapter(adapter);
 
         updateAndroidSecurityProvider();
-        getData();
+        getCalendar();
+        //FINISH CALENDAR
+
 
         //BUTTON SECTION
         Button forumBtn = (Button) findViewById(R.id.forumBtn);
@@ -97,17 +106,16 @@ public class MainPage extends AppCompatActivity {
         });
         //END OF BUTTON SECTION
 
-        //CALENDAR
-
-
-        //END CALENDAR
-
     }
 
-    private void getData() {
+
+    //FETCH DO CALENDARIO
+    private void getCalendar() {
         final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Loading...");
-        progressDialog.show();
+        loading = new Dialog(this);
+        loading.setContentView(R.layout.loading_popup_acti);
+        loading.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        loading.show();
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
             @Override
@@ -120,14 +128,14 @@ public class MainPage extends AppCompatActivity {
                         calendar.setDay(jsonObject.getString("day"));
                         calendar.setActi_name(jsonObject.getString("name"));
 
-                        movieList.add(calendar);
+                        calendarList.add(calendar);
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        progressDialog.dismiss();
+                        loading.dismiss();
                     }
                 }
                 adapter.notifyDataSetChanged();
-                progressDialog.dismiss();
+                loading.dismiss();
             }
         }, new Response.ErrorListener() {
             @Override
@@ -140,6 +148,10 @@ public class MainPage extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonArrayRequest);
     }
+
+
+    //NAO SEI O QUE FAZ MAS FAZ O CODIGO FAZER BLEEP BLOOP BLEEP
+    //NAO RETIRAR
     private void updateAndroidSecurityProvider() { try { ProviderInstaller.installIfNeeded(this); } catch (Exception e) { e.getMessage(); } }
 }
 

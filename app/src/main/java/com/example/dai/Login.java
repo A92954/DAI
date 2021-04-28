@@ -5,26 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.dai.Backend.Children;
-import com.example.dai.Backend.SessionManagement;
-import com.example.dai.Backend.User;
 import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import cz.msebera.android.httpclient.Header;
 
 public class Login extends AppCompatActivity {
     EditText username, password;
-    Button login;
     String u, p;
     AsyncHttpClient client;
     RequestParams params;
@@ -43,6 +31,19 @@ public class Login extends AppCompatActivity {
                 startActivity(startIntent);
             }
         });
+
+        Button loginBtn = (Button) findViewById(R.id.loginBtn);
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startIntent = new Intent(getApplicationContext(), MainPage.class);
+                startActivity(startIntent);
+            }
+        });
+
+        /*
+
+
 
         username = (EditText)findViewById(R.id.usernameID);
         password = (EditText)findViewById(R.id.passwordD);
@@ -103,6 +104,6 @@ public class Login extends AppCompatActivity {
                 Intent startIntent = new Intent(getApplicationContext(), MainPage.class);
                 startActivity(startIntent);
             }
-        });
+        });*/
     }
 }
