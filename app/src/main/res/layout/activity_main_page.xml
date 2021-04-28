@@ -61,65 +61,21 @@
         app:layout_constraintVertical_bias="0.484"
         app:layout_constraintWidth_percent="0.27" />
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/calendarLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.29"
-        app:layout_constraintWidth_percent="0.70"
-        android:background="@drawable/round_corner_right"
-        android:backgroundTint="@color/yellow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.938"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.963">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/activList"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:alwaysDrawnWithCache="false"
-            android:animateLayoutChanges="false"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:itemCount="0" />
-    </androidx.core.widget.NestedScrollView>
-
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout10"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.29"
-        app:layout_constraintWidth_percent="0.26"
         android:background="@drawable/round_corner_left"
         android:backgroundTint="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/calendarLayout"
-        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.29"
+        app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.963">
+        app:layout_constraintVertical_bias="0.968"
+        app:layout_constraintWidth_percent="0.26">
 
-        <TextView
-            android:id="@+id/desc_calendar"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:fontFamily="@font/patrick_hand"
-            android:text="O que podes fazer este mês"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.99"
-            app:layout_constraintHorizontal_bias="0.66"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.43"
-            app:layout_constraintWidth_percent="0.80" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
@@ -176,5 +132,67 @@
         app:layout_constraintVertical_bias="0.33"
         app:layout_constraintWidth_percent="0.35"
         app:srcCompat="@drawable/patinho" />
+
+    <TextView
+        android:id="@+id/desc_calendar"
+        android:layout_width="345dp"
+        android:layout_height="64dp"
+        android:fontFamily="@font/patrick_hand"
+        android:gravity="center"
+        android:text="O que podes fazer este mês"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.99"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.631"
+        app:layout_constraintWidth_percent="0.80" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout11"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/round_corner_right"
+        android:backgroundTint="@color/yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.29"
+        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.968"
+        app:layout_constraintWidth_percent="0.70">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/calendarLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/round_corners"
+        android:backgroundTint="#00ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.29"
+        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.97"
+        app:layout_constraintWidth_percent="0.98">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/activList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alwaysDrawnWithCache="false"
+            android:animateLayoutChanges="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:itemCount="0" />
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
