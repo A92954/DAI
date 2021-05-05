@@ -8,9 +8,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+
+import org.json.JSONObject;
+
+import cz.msebera.android.httpclient.Header;
 
 public class Suggestion extends AppCompatActivity {
 
@@ -33,7 +39,30 @@ public class Suggestion extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                c = comment.getText().toString();
 
+                params = new RequestParams();
+                params.put("comment", c);
+                client = new AsyncHttpClient();
+
+                client.post(URL, params, new JsonHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                        super.onSuccess(statusCode, headers, response);
+                        System.out.println(response.toString());
+                        Toast.makeText(Suggestion.this, "Submit Success" +response, Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                        super.onFailure(statusCode, headers, responseString, throwable);
+                        Toast.makeText(Suggestion.this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                Intent startIntent = new Intent(getApplicationContext(), MainPage.class);
+                startActivity(startIntent);
             }
         });
 
@@ -46,6 +75,5 @@ public class Suggestion extends AppCompatActivity {
                 startActivity(startIntent);
             }
         });
-
     }
 }

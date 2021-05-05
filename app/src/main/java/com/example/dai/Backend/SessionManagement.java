@@ -29,7 +29,6 @@ public class SessionManagement {
     //RETURN USER ID SESSION SAVED
     public int getSession(){
         return sharedPreferences.getInt(SESSION_KEY, -1);
-
     }
 
     public String getEMAIL() {
