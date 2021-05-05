@@ -36,7 +36,7 @@
         app:layout_constraintWidth_percent="0.60">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/activname"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/corner_upright"
