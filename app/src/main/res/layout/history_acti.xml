@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,129 +8,83 @@
 
     <ImageView
         android:id="@+id/imageView28"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/constraintLayout9"
-        app:layout_constraintHeight_percent="0.20"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.053"
-        app:layout_constraintWidth_percent="0.35"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="150dp"
+        android:layout_height="170dp"
         app:srcCompat="@drawable/no_image" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/constraintLayout9"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="240dp"
+        android:layout_height="170dp"
         android:background="@drawable/round_corner_right"
         android:backgroundTint="#C97AC4CC"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.20"
-        app:layout_constraintHorizontal_bias="0.932"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.053"
-        app:layout_constraintWidth_percent="0.60">
+       >
 
         <TextView
             android:id="@+id/activname"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="238dp"
+            android:layout_height="30dp"
             android:background="@drawable/corner_upright"
             android:backgroundTint="#C4CC"
             android:fontFamily="@font/patrick_hand"
             android:text="TextView"
             android:textColor="#000000"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.20"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:layout_constraintWidth_percent="0.9999999999999" />
+            />
 
         <TextView
             android:id="@+id/locationHist"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
             android:fontFamily="@font/patrick_hand"
             android:text="Localidade Exemplo"
+            android:layout_marginLeft="-200dp"
+            android:layout_marginTop="27dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.15"
-            app:layout_constraintHorizontal_bias="0.89"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.3"
-            app:layout_constraintWidth_percent="0.75" />
+            />
 
         <TextView
             android:id="@+id/dataHist"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
             android:fontFamily="@font/patrick_hand"
             android:text="Exemplo Data"
+            android:layout_marginLeft="-200dp"
+            android:layout_marginTop="60dp"
             android:textColor="#000000"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.15"
-            app:layout_constraintHorizontal_bias="0.887"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.562"
-            app:layout_constraintWidth_percent="0.75" />
+             />
 
         <TextView
             android:id="@+id/mesHist"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="-200dp"
+            android:layout_marginTop="100dp"
             android:fontFamily="@font/patrick_hand"
             android:text="Obrigado por teres vindo!"
             android:textColor="#000000"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.15"
-            app:layout_constraintHorizontal_bias="0.887"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8"
-            app:layout_constraintWidth_percent="0.75" />
+            />
 
         <ImageView
             android:id="@+id/imageView29"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/dataHist"
-            app:layout_constraintHeight_percent="0.15"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.562"
-            app:layout_constraintWidth_percent="0.20"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="-235dp"
+            android:layout_marginTop="32dp"
             app:srcCompat="@drawable/calendar" />
 
         <ImageView
             android:id="@+id/imageView30"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/locationHist"
-            app:layout_constraintHeight_percent="0.15"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.303"
-            app:layout_constraintWidth_percent="0.20"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="-30dp"
+            android:layout_marginTop="65dp"
             app:srcCompat="@drawable/location" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</LinearLayout>

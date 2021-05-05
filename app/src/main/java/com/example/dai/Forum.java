@@ -1,11 +1,11 @@
 package com.example.dai;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Forum extends AppCompatActivity {
 
@@ -25,14 +25,6 @@ public class Forum extends AppCompatActivity {
             }
         });
 
-       /*findViewById(R.id.returnBtn2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });*/
-    }
-    public void onBackPressed(){
-        super.onBackPressed();
+
     }
 }
