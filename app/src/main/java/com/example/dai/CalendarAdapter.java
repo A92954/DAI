@@ -32,6 +32,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
         CalendarModel calendar = list.get(position);
 
+        holder.textId.setText(calendar.getId_calendar());
         holder.textDay.setText(calendar.getDay());
         holder.textActi.setText(calendar.getActi_name());
 
@@ -43,11 +44,11 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textDay, textActi;
+        public TextView textDay, textActi, textId;
 
         public ViewHolder(View itemView) {
             super(itemView);
-
+            textId = itemView.findViewById(R.id.id_placeholder_calendar);
             textDay = itemView.findViewById(R.id.dayID);
             textActi = itemView.findViewById(R.id.actiNameID);
         }

@@ -67,6 +67,21 @@ public class MainPage extends AppCompatActivity {
         getCalendar();
         //FINISH CALENDAR
 
+        //SHOW +INFO CALENDAR
+        activList.addOnItemTouchListener(new RecyclerItemClickListener(this, activList ,new RecyclerItemClickListener.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(View view, int position) {
+                Intent startIntent = new Intent(getApplicationContext(), ActiDesc.class);
+                startIntent.putExtra("placeholder_key", String.valueOf(calendarList.get(position).getId_calendar()));
+                startActivity(startIntent);
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+
+            }
+        }));
 
         //BUTTON SECTION
         Button forumBtn = (Button) findViewById(R.id.forumBtn);
@@ -125,6 +140,7 @@ public class MainPage extends AppCompatActivity {
                         JSONObject jsonObject = response.getJSONObject(i);
 
                         CalendarModel calendar = new CalendarModel();
+                        calendar.setId_calendar(jsonObject.getString("id_activity"));
                         calendar.setDay(jsonObject.getString("day"));
                         calendar.setActi_name(jsonObject.getString("name"));
 
