@@ -39,6 +39,7 @@ public class MainPage extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private String url = "http://93.108.170.117:8080/DAI-end/current";
     Dialog loading;
+    Dialog failure;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,8 @@ public class MainPage extends AppCompatActivity {
         getCalendar();
         //FINISH CALENDAR
 
+
+
         //SHOW +INFO CALENDAR
         activList.addOnItemTouchListener(new RecyclerItemClickListener(this, activList ,new RecyclerItemClickListener.OnItemClickListener(){
 
@@ -79,9 +82,13 @@ public class MainPage extends AppCompatActivity {
 
             @Override
             public void onLongItemClick(View view, int position) {
-
+                Intent startIntent = new Intent(getApplicationContext(), ActiDesc.class);
+                startIntent.putExtra("placeholder_key", String.valueOf(calendarList.get(position).getId_calendar()));
+                startActivity(startIntent);
             }
         }));
+
+
 
         //BUTTON SECTION
         Button forumBtn = (Button) findViewById(R.id.forumBtn);
@@ -127,10 +134,17 @@ public class MainPage extends AppCompatActivity {
     //FETCH DO CALENDARIO
     private void getCalendar() {
         final ProgressDialog progressDialog = new ProgressDialog(this);
+
+        //LOADING SCREEN
         loading = new Dialog(this);
         loading.setContentView(R.layout.loading_popup_acti);
         loading.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         loading.show();
+
+        //ERROR SCREEN
+        failure = new Dialog(this);
+        failure.setContentView(R.layout.error_popup_acti);
+        failure.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
             @Override
@@ -157,7 +171,8 @@ public class MainPage extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e("Volley", error.toString());
-                progressDialog.dismiss();
+                loading.dismiss();
+                failure.show();
             }
         });
 
