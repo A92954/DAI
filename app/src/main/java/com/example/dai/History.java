@@ -9,7 +9,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -50,6 +49,7 @@ public class History extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
+
         //INICIO HISTORICO
         activityList = findViewById(R.id.historyList);
 
@@ -67,8 +67,45 @@ public class History extends AppCompatActivity {
 
         updateAndroidSecurityProvider();
         getHistory();
-
         //FIM HISTORICO
+
+
+        activityList.addOnItemTouchListener(new RecyclerItemClickListener(this, activityList ,new RecyclerItemClickListener.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(View view, int position) {
+                showPop();
+                //myDialog.setContentView(R.layout.popup_acti);
+                //myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                //myDialog.show();
+                //
+                //ImageView leavePopbtn = (ImageView) myDialog.findViewById(R.id.leavePopbtn);
+                //leavePopbtn.setOnClickListener(new View.OnClickListener() {
+                //    @Override
+                //    public void onClick(View v) {
+                //        myDialog.dismiss();
+                //    }
+                //});
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+                showPop();
+               // myDialog.setContentView(R.layout.popup_acti);
+               // myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+               // myDialog.show();
+                //
+               // ImageView leavePopbtn = (ImageView) myDialog.findViewById(R.id.leavePopbtn);
+               // leavePopbtn.setOnClickListener(new View.OnClickListener() {
+               //     @Override
+               //     public void onClick(View v) {
+               //         myDialog.dismiss();
+               //     }
+               // });
+            }
+        }));
+
+
 
         myDialog = new Dialog(this);
 
@@ -125,11 +162,22 @@ public class History extends AppCompatActivity {
         requestQueue.add(jsonArrayRequest);
     }
 
+    public void showPop(){
+        myDialog.setContentView(R.layout.popup_acti);
+        myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        myDialog.show();
+        ImageView leavePopbtn = (ImageView) myDialog.findViewById(R.id.leavePopbtn);
+        leavePopbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDialog.dismiss();
+            }
+        });
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void showPopup(View v){
-        Button btn;
         myDialog.setContentView(R.layout.popup_acti);
-        btn = (Button) myDialog.findViewById(R.id.btn);
         myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         myDialog.show();
         ImageView leavePopbtn = (ImageView) myDialog.findViewById(R.id.leavePopbtn);

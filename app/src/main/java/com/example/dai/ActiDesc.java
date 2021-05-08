@@ -87,8 +87,15 @@ public class ActiDesc extends AppCompatActivity {
                     name = (TextView) findViewById(R.id.activTitleID);
                     name.setText(jsonObject.getString("name"));
 
+                    try {
                         local = (TextView) findViewById(R.id.localID);
                         local.setText(jsonObject.getString("local"));
+                    }catch (Exception e){
+
+                    }
+
+                    local = (TextView) findViewById(R.id.localID);
+                    local.setText(jsonObject.getString("local"));
 
                     institution = (TextView) findViewById(R.id.institutionID);
                     institution.setText(jsonObject.getString("institution"));

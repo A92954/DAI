@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,10 +44,17 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView historyDayID, historyLocalID, historyNameID;
+        public ImageView dayIcon, localIcon;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
+            dayIcon = itemView.findViewById(R.id.imageView30);
+            dayIcon.setImageResource(R.drawable.location);
+
+            localIcon = itemView.findViewById(R.id.imageView29);
+            localIcon.setImageResource(R.drawable.calendar);
+
             historyDayID = itemView.findViewById(R.id.dataHist);
             historyLocalID = itemView.findViewById(R.id.locationHist);
             historyNameID = itemView.findViewById(R.id.activname);
