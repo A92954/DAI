@@ -5,9 +5,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -31,6 +34,11 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
     public void onBindViewHolder(ViewHolder holder, int position) {
         ForumModel forum = list.get(position);
 
+        Picasso.with(context)
+                .load(forum
+                        .getImage_URL())
+                .into(holder.imageID);
+
         holder.commentID.setText(forum.getComentario());
         holder.userNameID.setText(forum.getUsername());
 
@@ -43,9 +51,11 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView commentID, userNameID;
+        public ImageView imageID;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            imageID = itemView.findViewById(R.id.imageForum);
             commentID = itemView.findViewById(R.id.descForumID);
             userNameID = itemView.findViewById(R.id.userNameID);
         }

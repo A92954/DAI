@@ -1,19 +1,16 @@
 package com.example.dai;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
-import android.view.textclassifier.TextLinks.Request;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dai.Backend.SessionManagement;
 import com.loopj.android.http.AsyncHttpClient;
@@ -42,11 +39,12 @@ public class Profile extends AppCompatActivity {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         SessionManagement session = new SessionManagement(this);
 
-        int id_child = session.getID_CHILD();
+        int id_child_int = session.getID_CHILD();
+        String id_child = String.valueOf(id_child_int);
 
         client = new AsyncHttpClient();
 
-        String URL = "http://93.108.170.117:8080/DAI-end/profile1?id_child=" +id_child;
+        String URL = "http://93.108.170.117:8080/DAI-end/profile1?id_child=" + id_child;
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override

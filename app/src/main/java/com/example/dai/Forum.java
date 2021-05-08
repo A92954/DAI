@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.security.ProviderInstaller;
@@ -40,11 +42,18 @@ public class Forum extends AppCompatActivity {
     private String url = "http://93.108.170.117:8080/DAI-end/share";
     Dialog loading;
     Dialog failure;
+    ImageView im1;
+    ImageLoader mImageLoader;
+    ImageView mImageView;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum);
+
 
         //BEGIN FORUM
         shareList = findViewById(R.id.forumList);
@@ -61,6 +70,8 @@ public class Forum extends AppCompatActivity {
         shareList.setLayoutManager(linearLayoutManager);
         shareList.addItemDecoration(dividerItemDecoration);
         shareList.setAdapter(adapter);
+
+
 
         updateAndroidSecurityProvider();
         getForum();
@@ -102,6 +113,7 @@ public class Forum extends AppCompatActivity {
                         ForumModel forum = new ForumModel();
                         forum.setComentario(jsonObject.getString("activity_comment"));
                         forum.setUsername(jsonObject.getString("name_child"));
+                        forum.setImage_URL(jsonObject.getString("photo"));
 
                         forumList.add(forum);
                     } catch (JSONException e) {
@@ -124,6 +136,8 @@ public class Forum extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonArrayRequest);
     }
+
+
     //NAO MEXER SENAO CODIGO VAI DAR BOOM
     private void updateAndroidSecurityProvider() { try { ProviderInstaller.installIfNeeded(this); } catch (Exception e) { e.getMessage(); } }
 }

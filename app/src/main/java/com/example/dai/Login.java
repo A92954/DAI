@@ -16,8 +16,8 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -79,16 +79,16 @@ public class Login extends AppCompatActivity {
                 client = new AsyncHttpClient();
                 client.post(URL, params, new JsonHttpResponseHandler() {
                     @Override
-                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                    public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                         super.onSuccess(statusCode, headers, response);
 
                         String email = "";
                         int id_user = 0, id_child = 0;
 
                         try {
-                            email = response.getString("email");
-                            id_user = response.getInt("id_user");
-                            id_child = response.getInt("id_child");
+                            //email = response.getString("email");
+                            id_user = response.getInt(0);
+                            id_child = response.getInt(1);
                         } catch (JSONException exc) {
                             exc.printStackTrace();
                         }
@@ -97,6 +97,9 @@ public class Login extends AppCompatActivity {
                         Children ch = new Children(id_child);
                         SessionManagement session = new SessionManagement(Login.this);
                         session.saveSession(us, ch);
+
+                        Intent startIntent = new Intent(getApplicationContext(), MainPage.class);
+                        startActivity(startIntent);
 
                         Toast.makeText(Login.this, "Login Success" +response, Toast.LENGTH_SHORT).show();
                     }
@@ -107,8 +110,7 @@ public class Login extends AppCompatActivity {
                         Toast.makeText(Login.this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
                     }
                 });
-                Intent startIntent = new Intent(getApplicationContext(), MainPage.class);
-                startActivity(startIntent);
+
             }
         });
     }
