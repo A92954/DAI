@@ -30,10 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -46,15 +43,18 @@ public class History extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private String url = "http://93.108.170.117:8080/DAI-end/child_activity?id_child=1";
     Dialog myDialog;
+    Dialog loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
+        //INICIO HISTORICO
         activityList = findViewById(R.id.historyList);
 
         historyList = new ArrayList<>();
+        adapter = new HistoryAdapter(getApplicationContext(), historyList);
 
         linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -66,6 +66,9 @@ public class History extends AppCompatActivity {
         activityList.setAdapter(adapter);
 
         updateAndroidSecurityProvider();
+        getHistory();
+
+        //FIM HISTORICO
 
         myDialog = new Dialog(this);
 
@@ -81,10 +84,10 @@ public class History extends AppCompatActivity {
 
     public void getHistory(){
         final ProgressDialog progressDialog = new ProgressDialog(this);
-        myDialog = new Dialog(this);
-        myDialog.setContentView(R.layout.loading_popup_acti);
-        myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        myDialog.show();
+        loading = new Dialog(this);
+        loading.setContentView(R.layout.loading_popup_acti);
+        loading.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        loading.show();
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
             @Override
@@ -95,20 +98,19 @@ public class History extends AppCompatActivity {
 
                         HistoryModel history = new HistoryModel();
 
-                        String dateStr = jsonObject.getString("schedule");
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                        Date data = sdf.parse(dateStr);
                         history.setData(jsonObject.getString("schedule"));
                         history.setActi_name(jsonObject.getString("name"));
                         history.setLocal(jsonObject.getString("address"));
+
                         historyList.add(history);
-                    } catch (JSONException | ParseException e) {
+
+                    } catch (JSONException e) {
                         e.printStackTrace();
-                        myDialog.dismiss();
+                        loading.dismiss();
                     }
                 }
                 adapter.notifyDataSetChanged();
-                myDialog.dismiss();
+               loading.dismiss();
             }
         }, new Response.ErrorListener() {
             @Override
@@ -117,6 +119,7 @@ public class History extends AppCompatActivity {
                 progressDialog.dismiss();
             }
         });
+
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonArrayRequest);

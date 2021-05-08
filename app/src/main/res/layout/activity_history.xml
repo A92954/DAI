@@ -68,7 +68,8 @@
                 android:id="@+id/historyList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:overScrollMode="never"/>
+                android:overScrollMode="never"
+                tools:itemCount="0" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
