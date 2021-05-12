@@ -44,7 +44,7 @@ public class Profile extends AppCompatActivity {
 
         client = new AsyncHttpClient();
 
-        String URL = "http://93.108.170.117:8080/DAI-end/profile1?id_child=" + id_child;
+        String URL = "http://93.108.170.117:8080/DAI-end/profile1?id_child=" + session.getID_CHILD();
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override

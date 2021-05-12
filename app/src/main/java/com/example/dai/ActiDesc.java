@@ -37,7 +37,7 @@ public class ActiDesc extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acti_desc);
 
-        url = "http://93.108.170.117:8080/DAI-end/activity?id=13";
+        //url = "http://93.108.170.117:8080/DAI-end/activity?id=13";
 
         //GET ID FROM PREVIOUS PAGE
         //PUTS ID IN A TEXTVIEW WITH 0 SIZE
@@ -47,8 +47,6 @@ public class ActiDesc extends AppCompatActivity {
             tv.setText(text);
             getInfo(text);
         }
-
-
 
 
         //BUTTON SECTION
@@ -66,7 +64,7 @@ public class ActiDesc extends AppCompatActivity {
 
     private void getInfo(String text) {
         final ProgressDialog progressDialog = new ProgressDialog(this);
-        //url = "http://93.108.170.117:8080/DAI-end/activity?id=" + text;
+        url = "http://93.108.170.117:8080/DAI-end/activity?id=" +text;
 
         //LOADING SCREEN
         loading = new Dialog(this);

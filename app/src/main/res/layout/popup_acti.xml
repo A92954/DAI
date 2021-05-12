@@ -70,7 +70,7 @@
         app:layout_constraintWidth_percent="0.60" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/getCommentId"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/round_corners"
@@ -120,7 +120,7 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.987"
+        app:layout_constraintVertical_bias="0.971"
         app:layout_constraintWidth_percent="0.50" />
 
     <ImageView
