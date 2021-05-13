@@ -85,14 +85,14 @@ public class History extends AppCompatActivity {
         getHistory();
         //FIM HISTORICO
 
-        save = (Button) findViewById(R.id.saveShareBtn);
+        /*save = (Button) findViewById(R.id.saveShareBtn);
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setInfo();
             }
-        });
+        });*/
 
 
         activityList.addOnItemTouchListener(new RecyclerItemClickListener(this, activityList ,new RecyclerItemClickListener.OnItemClickListener(){
