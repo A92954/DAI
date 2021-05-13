@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -20,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.dai.Backend.SessionManagement;
 import com.google.android.gms.security.ProviderInstaller;
 
 import org.json.JSONArray;
@@ -29,7 +31,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class MainPage extends AppCompatActivity {
+
+
 
     private RecyclerView activList;
 
@@ -123,6 +128,17 @@ public class MainPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent startIntent = new Intent(getApplicationContext(), Profile.class);
+                startActivity(startIntent);
+            }
+        });
+
+        ImageView logoutBtn = (ImageView) findViewById(R.id.logoutBtn);
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SessionManagement session = new SessionManagement(MainPage.this);
+                session.removeSession();
+                Intent startIntent = new Intent(getApplicationContext(), Login.class);
                 startActivity(startIntent);
             }
         });
