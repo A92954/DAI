@@ -9,8 +9,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +28,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.security.ProviderInstaller;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,6 +38,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
 
 
 public class History extends AppCompatActivity {
@@ -43,6 +52,13 @@ public class History extends AppCompatActivity {
     private String url = "http://93.108.170.117:8080/DAI-end/child_activity?id_child=1";
     Dialog myDialog;
     Dialog loading;
+
+    RatingBar bar;
+    EditText comment;
+    Button save;
+    String c;
+    AsyncHttpClient client;
+    RequestParams params;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +84,15 @@ public class History extends AppCompatActivity {
         updateAndroidSecurityProvider();
         getHistory();
         //FIM HISTORICO
+
+        save = (Button) findViewById(R.id.saveShareBtn);
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setInfo();
+            }
+        });
 
 
         activityList.addOnItemTouchListener(new RecyclerItemClickListener(this, activityList ,new RecyclerItemClickListener.OnItemClickListener(){
@@ -192,6 +217,42 @@ public class History extends AppCompatActivity {
         });
 
     }
+
+
+
+    public void setInfo() {
+        comment = (EditText) findViewById(R.id.getCommentId);
+
+        c = comment.getText().toString();
+
+        params = new RequestParams();
+
+        params.put("activity_comment", c);
+
+        client = new AsyncHttpClient();
+
+        //Ir buscar a session
+
+        String URL1 = "http://93.108.170.117:8080/DAI-end/evaluation?id_child=1&id_activity=2";
+
+        client.post(URL1, params, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                System.out.println(response.toString());
+
+                //Fazer uma alteração para quando aquilo guardar os dados, nao aparecer nada no text field
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                super.onFailure(statusCode, headers, responseString, throwable);
+
+                //Aquilo altera na BD mas aparece a msg no tele a dizer Something Went Wrong
+            }
+        });
+    }
+
 
     private void updateAndroidSecurityProvider() { try { ProviderInstaller.installIfNeeded(this); } catch (Exception e) { e.getMessage(); }}
 

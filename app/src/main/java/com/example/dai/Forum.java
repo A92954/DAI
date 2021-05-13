@@ -48,6 +48,7 @@ public class Forum extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

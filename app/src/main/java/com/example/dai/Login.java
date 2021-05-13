@@ -82,7 +82,7 @@ public class Login extends AppCompatActivity {
                     public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                         super.onSuccess(statusCode, headers, response);
 
-                        String email = "";
+                        //String email = "";
                         int id_user = 0, id_child = 0;
 
                         try {
@@ -93,7 +93,7 @@ public class Login extends AppCompatActivity {
                             exc.printStackTrace();
                         }
 
-                        User us = new User(email, id_user);
+                        User us = new User(id_user);
                         Children ch = new Children(id_child);
                         SessionManagement session = new SessionManagement(Login.this);
                         session.saveSession(us, ch);
