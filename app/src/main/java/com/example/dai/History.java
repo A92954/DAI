@@ -52,12 +52,7 @@ public class History extends AppCompatActivity {
     Dialog myDialog;
     Dialog loading;
 
-    RatingBar bar;
-    EditText comment;
-    Button save;
-    String c;
-    AsyncHttpClient client;
-    RequestParams params;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,14 +79,14 @@ public class History extends AppCompatActivity {
         getHistory();
         //FIM HISTORICO
 
-        /*save = (Button) findViewById(R.id.saveShareBtn);
+       //Button save = (Button) findViewById(R.id.saveShareBtn);
 
-        save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setInfo();
-            }
-        });*/
+       //save.setOnClickListener(new View.OnClickListener() {
+       //    @Override
+       //    public void onClick(View v) {
+       //        //setInfo();
+       //    }
+       //});
 
 
         activityList.addOnItemTouchListener(new RecyclerItemClickListener(this, activityList ,new RecyclerItemClickListener.OnItemClickListener(){
@@ -143,7 +138,8 @@ public class History extends AppCompatActivity {
                         history.setActi_name(jsonObject.getString("name"));
                         history.setLocal(jsonObject.getString("address"));
                         //String ImageUrl = "http://93.108.170.117:8080/DAI-end/Images/" + jsonObject.optString("photo");
-                        String ImageUrl = "https://pbs.twimg.com/profile_images/888907252702347265/g2JwwLDR_400x400.jpg";
+                        //String ImageUrl = "https://pbs.twimg.com/profile_images/888907252702347265/g2JwwLDR_400x400.jpg";
+                        String ImageUrl = "https://scontent.fopo4-2.fna.fbcdn.net/v/t1.18169-9/11924268_878778882158348_4837939208486181417_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=174925&_nc_eui2=AeFHyU6IQdrx6TQvylsPWpTUyOPuuww3QbfI4-67DDdBt0eokzLeoEDPCtJa82GLgg2Zgcq_ntpc_xq0BRzwubrH&_nc_ohc=9BIIu_axbPUAX8botKT&_nc_ht=scontent.fopo4-2.fna&oh=822a51f9e3e6eb2a37dcccfbf8dee8ec&oe=60C10DAD";
                         history.setImageURL(ImageUrl);
 
                         historyList.add(history);
@@ -173,6 +169,16 @@ public class History extends AppCompatActivity {
         myDialog.setContentView(R.layout.popup_acti);
         myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         myDialog.show();
+
+       Button save = (Button) myDialog.findViewById(R.id.saveShareBtn);
+       save.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               setInfo();
+               myDialog.dismiss();
+           }
+       });
+
         ImageView leavePopbtn = (ImageView) myDialog.findViewById(R.id.leavePopbtn);
         leavePopbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -200,19 +206,34 @@ public class History extends AppCompatActivity {
 
 
     public void setInfo() {
-        comment = (EditText) findViewById(R.id.getCommentId);
+
+        RatingBar bar;
+        EditText comment;
+
+        String c;
+        AsyncHttpClient client;
+        RequestParams params;
+        double rating = 0;
+
+        bar = (RatingBar) myDialog.findViewById(R.id.ratingBar);
+        int numStars = (int) bar.getRating();
+
+
+
+        comment = (EditText) myDialog.findViewById(R.id.getCommentId);
 
         c = comment.getText().toString();
 
         params = new RequestParams();
 
         params.put("activity_comment", c);
+        params.put("activity_evaluation", numStars);
 
         client = new AsyncHttpClient();
 
         //Ir buscar a session
 
-        String URL1 = "http://93.108.170.117:8080/DAI-end/evaluation?id_child=1&id_activity=2";
+        String URL1 = "http://93.108.170.117:8080/DAI-end/evaluation?id_child=1&id_activity=3";
 
         client.post(URL1, params, new JsonHttpResponseHandler() {
             @Override
