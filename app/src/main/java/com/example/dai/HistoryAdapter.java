@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
@@ -31,6 +33,13 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, int position) {
         HistoryModel history = list.get(position);
 
+        Picasso.get()
+                .load(history
+                        .getImageURL())
+                .resize(300, 300)
+                .centerInside()
+                .into(holder.imageId);
+
         holder.historyDayID.setText(history.getData());
         holder.historyNameID.setText(history.getActi_name());
         holder.historyLocalID.setText(history.getLocal());
@@ -44,11 +53,13 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView historyDayID, historyLocalID, historyNameID;
-        public ImageView dayIcon, localIcon;
+        public ImageView dayIcon, localIcon, imageId;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
+            imageId = itemView.findViewById(R.id.imageHistory);
+
             dayIcon = itemView.findViewById(R.id.imageView30);
             dayIcon.setImageResource(R.drawable.location);
 

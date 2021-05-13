@@ -8,7 +8,10 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
 
@@ -37,7 +41,7 @@ public class ActiDesc extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acti_desc);
 
-        url = "http://93.108.170.117:8080/DAI-end/activity?id=13";
+        //url = "http://93.108.170.117:8080/DAI-end/activity?id=13";
 
         //GET ID FROM PREVIOUS PAGE
         //PUTS ID IN A TEXTVIEW WITH 0 SIZE
@@ -66,7 +70,8 @@ public class ActiDesc extends AppCompatActivity {
 
     private void getInfo(String text) {
         final ProgressDialog progressDialog = new ProgressDialog(this);
-        //url = "http://93.108.170.117:8080/DAI-end/activity?id=" + text;
+        url = "http://93.108.170.117:8080/DAI-end/activity?id=" + text;
+
 
         //LOADING SCREEN
         loading = new Dialog(this);
@@ -84,28 +89,41 @@ public class ActiDesc extends AppCompatActivity {
             public void onResponse(JSONObject jsonObject) {
                 try{
 
+
                     name = (TextView) findViewById(R.id.activTitleID);
                     name.setText(jsonObject.getString("name"));
 
-                    try {
-                        local = (TextView) findViewById(R.id.localID);
-                        local.setText(jsonObject.getString("local"));
-                    }catch (Exception e){
-
-                    }
 
                     local = (TextView) findViewById(R.id.localID);
-                    local.setText(jsonObject.getString("local"));
+                    local.setText(jsonObject.optString("local"));
+
 
                     institution = (TextView) findViewById(R.id.institutionID);
                     institution.setText(jsonObject.getString("institution"));
 
+
                     dia = (TextView) findViewById(R.id.dayID);
                     dia.setText(jsonObject.getString("schedule"));
 
-                    String duracao = jsonObject.getString("start") + " - " + jsonObject.getString("end");
+
+                    String duracao = jsonObject.optString("start") + " - " + jsonObject.optString("end");
                     hora = (TextView) findViewById(R.id.horaID);
                     hora.setText(duracao);
+
+
+                    //String ImageUrl = "http://93.108.170.117:8080/DAI-end/Images/" + jsonObject.optString("photo");
+                    String ImageURL = "https://4.bp.blogspot.com/-Zvk3ewqjE8Y/XJ00OoVelgI/AAAAAAAAFy8/PJmn5PVczaIdjwSrtpiY-B9r6V8ym-nIwCLcBGAs/s1600/Fetch%2Bimage%2Bfrom%2Bserver%25281%2529.png";
+                    ImageView ImageUrl = (ImageView) findViewById(R.id.activImage);
+
+                    Picasso.get()
+                            .load(ImageURL)
+                            .resize(300, 300)
+                            .centerInside()
+                            .into(ImageUrl);
+
+
+
+
 
                 } catch(Exception e) {
                     e.printStackTrace();

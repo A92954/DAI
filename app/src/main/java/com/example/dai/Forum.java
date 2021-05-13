@@ -113,7 +113,9 @@ public class Forum extends AppCompatActivity {
                         ForumModel forum = new ForumModel();
                         forum.setComentario(jsonObject.getString("activity_comment"));
                         forum.setUsername(jsonObject.getString("name_child"));
-                        forum.setImage_URL(jsonObject.getString("photo"));
+                        //String ImageUrl = "http://93.108.170.117:8080/DAI-end/Images/" + jsonObject.optString("photo");
+                        String ImageUrl = "https://4.bp.blogspot.com/-Zvk3ewqjE8Y/XJ00OoVelgI/AAAAAAAAFy8/PJmn5PVczaIdjwSrtpiY-B9r6V8ym-nIwCLcBGAs/s1600/Fetch%2Bimage%2Bfrom%2Bserver%25281%2529.png";
+                        forum.setImage_URL(ImageUrl);
 
                         forumList.add(forum);
                     } catch (JSONException e) {

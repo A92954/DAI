@@ -138,6 +138,9 @@ public class History extends AppCompatActivity {
                         history.setData(jsonObject.getString("schedule"));
                         history.setActi_name(jsonObject.getString("name"));
                         history.setLocal(jsonObject.getString("address"));
+                        //String ImageUrl = "http://93.108.170.117:8080/DAI-end/Images/" + jsonObject.optString("photo");
+                        String ImageUrl = "https://4.bp.blogspot.com/-Zvk3ewqjE8Y/XJ00OoVelgI/AAAAAAAAFy8/PJmn5PVczaIdjwSrtpiY-B9r6V8ym-nIwCLcBGAs/s1600/Fetch%2Bimage%2Bfrom%2Bserver%25281%2529.png";
+                        history.setImageURL(ImageUrl);
 
                         historyList.add(history);
 

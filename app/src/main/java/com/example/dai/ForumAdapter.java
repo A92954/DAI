@@ -34,9 +34,11 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
     public void onBindViewHolder(ViewHolder holder, int position) {
         ForumModel forum = list.get(position);
 
-        Picasso.with(context)
+        Picasso.get()
                 .load(forum
                         .getImage_URL())
+                .resize(300, 300)
+                .centerInside()
                 .into(holder.imageID);
 
         holder.commentID.setText(forum.getComentario());

@@ -7,6 +7,7 @@ public class HistoryModel {
     String acti_name;
     String local;
     String data;
+    String Image_URL;
 
     public HistoryModel(){
 
@@ -16,6 +17,14 @@ public class HistoryModel {
         this.local = local;
         this.acti_name = acti_name;
         this.data = data;
+    }
+
+    public String getImageURL() {
+        return Image_URL;
+    }
+
+    public void setImageURL(String image_URL) {
+        Image_URL = image_URL;
     }
 
     public String getActi_name() {
