@@ -115,7 +115,7 @@ public class Forum extends AppCompatActivity {
                         forum.setComentario(jsonObject.getString("activity_comment"));
                         forum.setUsername(jsonObject.getString("name_child"));
                         //String ImageUrl = "http://93.108.170.117:8080/DAI-end/Images/" + jsonObject.optString("photo");
-                        String ImageUrl = "https://4.bp.blogspot.com/-Zvk3ewqjE8Y/XJ00OoVelgI/AAAAAAAAFy8/PJmn5PVczaIdjwSrtpiY-B9r6V8ym-nIwCLcBGAs/s1600/Fetch%2Bimage%2Bfrom%2Bserver%25281%2529.png";
+                        String ImageUrl = "https://static.coindesk.com/wp-content/uploads/2021/04/dogecoin-1200x628.jpg";
                         forum.setImage_URL(ImageUrl);
 
                         forumList.add(forum);

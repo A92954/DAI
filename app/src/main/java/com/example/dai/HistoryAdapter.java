@@ -36,7 +36,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         Picasso.get()
                 .load(history
                         .getImageURL())
-                .resize(300, 300)
+                .resize(100, 100)
                 .centerInside()
                 .into(holder.imageId);
 

@@ -4,12 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="420dp"
-    android:layout_height="470dp">
+    android:layout_height="400dp">
 
     <ImageView
         android:id="@+id/imageForum"
         android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
         android:layout_marginLeft="45sp"
         android:layout_marginTop="20sp"
         app:srcCompat="@drawable/no_image" />
@@ -19,7 +19,7 @@
         android:layout_width="99dp"
         android:layout_height="30dp"
         android:layout_marginLeft="-300sp"
-        android:layout_marginTop="326dp"
+        android:layout_marginTop="251dp"
         android:fontFamily="@font/patrick_hand"
         android:background="@color/white"
         android:backgroundTint="@color/white"
@@ -33,7 +33,7 @@
         android:id="@+id/descForumID"
         android:layout_width="300dp"
         android:layout_height="100dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="275dp"
         android:layout_marginLeft="-90sp"
         android:background="@drawable/round_corner_right"
         android:backgroundTint="@color/white"
@@ -59,7 +59,7 @@
         android:layout_marginLeft="-41sp"
         android:layout_marginTop="329dp"
         android:fontFamily="@font/patrick_hand"
-        android:text="0"
+        android:text=""
         android:textColor="#000000"
         android:textSize="20sp" />
 </LinearLayout>

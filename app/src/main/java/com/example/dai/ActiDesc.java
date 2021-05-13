@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
 
@@ -37,7 +39,7 @@ public class ActiDesc extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acti_desc);
 
-        url = "http://93.108.170.117:8080/DAI-end/activity?id=13";
+        //url = "http://93.108.170.117:8080/DAI-end/activity?id=13";
 
         //GET ID FROM PREVIOUS PAGE
         //PUTS ID IN A TEXTVIEW WITH 0 SIZE
@@ -66,7 +68,7 @@ public class ActiDesc extends AppCompatActivity {
 
     private void getInfo(String text) {
         final ProgressDialog progressDialog = new ProgressDialog(this);
-        //url = "http://93.108.170.117:8080/DAI-end/activity?id=" + text;
+        url = "http://93.108.170.117:8080/DAI-end/activity?id=" + text;
 
         //LOADING SCREEN
         loading = new Dialog(this);
@@ -106,6 +108,15 @@ public class ActiDesc extends AppCompatActivity {
                     String duracao = jsonObject.getString("start") + " - " + jsonObject.getString("end");
                     hora = (TextView) findViewById(R.id.horaID);
                     hora.setText(duracao);
+
+                    String imageURL = "https://images.uncyc.org/wikinet/3/32/Chad_sem_Virgin.png";
+                    ImageView imageId = (ImageView) findViewById(R.id.activImage);
+
+                    Picasso.get()
+                            .load(imageURL)
+                            .resize(300, 300)
+                            .centerInside()
+                            .into(imageId);
 
                 } catch(Exception e) {
                     e.printStackTrace();

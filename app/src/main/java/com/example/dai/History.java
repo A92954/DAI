@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
-import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -100,33 +99,13 @@ public class History extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int position) {
                 showPop();
-                //myDialog.setContentView(R.layout.popup_acti);
-                //myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                //myDialog.show();
-                //
-                //ImageView leavePopbtn = (ImageView) myDialog.findViewById(R.id.leavePopbtn);
-                //leavePopbtn.setOnClickListener(new View.OnClickListener() {
-                //    @Override
-                //    public void onClick(View v) {
-                //        myDialog.dismiss();
-                //    }
-                //});
+
             }
 
             @Override
             public void onLongItemClick(View view, int position) {
                 showPop();
-               // myDialog.setContentView(R.layout.popup_acti);
-               // myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-               // myDialog.show();
-                //
-               // ImageView leavePopbtn = (ImageView) myDialog.findViewById(R.id.leavePopbtn);
-               // leavePopbtn.setOnClickListener(new View.OnClickListener() {
-               //     @Override
-               //     public void onClick(View v) {
-               //         myDialog.dismiss();
-               //     }
-               // });
+
             }
         }));
 
@@ -164,7 +143,7 @@ public class History extends AppCompatActivity {
                         history.setActi_name(jsonObject.getString("name"));
                         history.setLocal(jsonObject.getString("address"));
                         //String ImageUrl = "http://93.108.170.117:8080/DAI-end/Images/" + jsonObject.optString("photo");
-                        String ImageUrl = "https://4.bp.blogspot.com/-Zvk3ewqjE8Y/XJ00OoVelgI/AAAAAAAAFy8/PJmn5PVczaIdjwSrtpiY-B9r6V8ym-nIwCLcBGAs/s1600/Fetch%2Bimage%2Bfrom%2Bserver%25281%2529.png";
+                        String ImageUrl = "https://pbs.twimg.com/profile_images/888907252702347265/g2JwwLDR_400x400.jpg";
                         history.setImageURL(ImageUrl);
 
                         historyList.add(history);
