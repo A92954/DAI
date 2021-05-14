@@ -1,17 +1,28 @@
 package com.example.dai;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.dai.Backend.SessionManagement;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -27,20 +38,29 @@ public class Profile extends AppCompatActivity {
     String n, m;
     AsyncHttpClient client;
     RequestParams params;
+    private String url;
+    Dialog failure;
+    Dialog loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        nome = (EditText) findViewById(R.id.nomeID);
-        morada = (EditText) findViewById(R.id.districtID);
-        save = (Button) findViewById(R.id.saveProfileBtn);
+
 
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         SessionManagement session = new SessionManagement(this);
 
         int id_child_int = session.getID_CHILD();
         String id_child = String.valueOf(id_child_int);
+
+        getProfileInfo(id_child);
+
+        nome = (EditText) findViewById(R.id.nomeID);
+        morada = (EditText) findViewById(R.id.districtID);
+        save = (Button) findViewById(R.id.saveProfileBtn);
+
+
 
         client = new AsyncHttpClient();
 
@@ -104,6 +124,49 @@ public class Profile extends AppCompatActivity {
         //END OF BUTTON SECTION
 
 
-
     }
+
+    private void getProfileInfo(String text) {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        url = "http://93.108.170.117:8080/DAI-end/child?id=" + text;
+
+        //LOADING SCREEN
+        loading = new Dialog(this);
+        loading.setContentView(R.layout.loading_popup_acti);
+        loading.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        loading.show();
+
+        //ERROR SCREEN
+        failure = new Dialog(this);
+        failure.setContentView(R.layout.error_popup_acti);
+        failure.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        JsonObjectRequest jr = new JsonObjectRequest(Request.Method.GET,url,null,new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject jsonObject) {
+                try{
+                    TextView nome = (TextView) findViewById(R.id.nomeID);
+                    nome.setText(jsonObject.getString("child_name"));
+
+                    TextView morada = (TextView) findViewById(R.id.districtID);
+                    morada.setText(jsonObject.getString("address"));
+
+
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        },new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                loading.dismiss();
+                failure.show();
+            }
+        });
+
+        loading.dismiss();
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jr);
+    }
+
 }
