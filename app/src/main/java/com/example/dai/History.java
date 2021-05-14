@@ -79,14 +79,6 @@ public class History extends AppCompatActivity {
         getHistory();
         //FIM HISTORICO
 
-       //Button save = (Button) findViewById(R.id.saveShareBtn);
-
-       //save.setOnClickListener(new View.OnClickListener() {
-       //    @Override
-       //    public void onClick(View v) {
-       //        //setInfo();
-       //    }
-       //});
 
 
         activityList.addOnItemTouchListener(new RecyclerItemClickListener(this, activityList ,new RecyclerItemClickListener.OnItemClickListener(){
@@ -118,6 +110,7 @@ public class History extends AppCompatActivity {
         });
     }
 
+    //FETCH DO HISTORICO
     public void getHistory(){
         final ProgressDialog progressDialog = new ProgressDialog(this);
         loading = new Dialog(this);
@@ -164,12 +157,15 @@ public class History extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonArrayRequest);
     }
+    //FIM DO FETCH
 
+    //FUNÇAO DO POP-UP
     public void showPop(){
         myDialog.setContentView(R.layout.popup_acti);
         myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         myDialog.show();
 
+        //GUARDAR ALTERAÇÕES DO POPUP
        Button save = (Button) myDialog.findViewById(R.id.saveShareBtn);
        save.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -179,6 +175,7 @@ public class History extends AppCompatActivity {
            }
        });
 
+       //SAIR DO POP-UP
         ImageView leavePopbtn = (ImageView) myDialog.findViewById(R.id.leavePopbtn);
         leavePopbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -204,7 +201,7 @@ public class History extends AppCompatActivity {
     }
 
 
-
+    //FETCH DO POPUP
     public void setInfo() {
 
         RatingBar bar;

@@ -90,6 +90,8 @@ public class Forum extends AppCompatActivity {
 
 
     }
+
+    //FETCH DO FORUM
     private void getForum() {
         final ProgressDialog progressDialog = new ProgressDialog(this);
 
@@ -139,6 +141,7 @@ public class Forum extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonArrayRequest);
     }
+    //FIM DO FETCH
 
 
     //NAO MEXER SENAO CODIGO VAI DAR BOOM

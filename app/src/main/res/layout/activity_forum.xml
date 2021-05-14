@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Forum"
-    android:background="@color/background_white">
+    android:background="@color/white">
 
     <ImageButton
         android:id="@+id/returnBtn2"
@@ -26,7 +26,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/round_corners"
-        android:backgroundTint="@color/red"
+        android:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.75"
