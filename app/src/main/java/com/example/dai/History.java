@@ -130,9 +130,9 @@ public class History extends AppCompatActivity {
                         history.setData(jsonObject.getString("schedule"));
                         history.setActi_name(jsonObject.getString("name"));
                         history.setLocal(jsonObject.getString("address"));
-                        //String ImageUrl = "http://93.108.170.117:8080/DAI-end/Images/" + jsonObject.optString("photo");
+                        String ImageUrl = "http://93.108.170.117:8080/DAI-end/Images/" + jsonObject.optString("file");
                         //String ImageUrl = "https://pbs.twimg.com/profile_images/888907252702347265/g2JwwLDR_400x400.jpg";
-                        String ImageUrl = "https://scontent.fopo4-2.fna.fbcdn.net/v/t1.18169-9/11924268_878778882158348_4837939208486181417_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=174925&_nc_eui2=AeFHyU6IQdrx6TQvylsPWpTUyOPuuww3QbfI4-67DDdBt0eokzLeoEDPCtJa82GLgg2Zgcq_ntpc_xq0BRzwubrH&_nc_ohc=9BIIu_axbPUAX8botKT&_nc_ht=scontent.fopo4-2.fna&oh=822a51f9e3e6eb2a37dcccfbf8dee8ec&oe=60C10DAD";
+                        //String ImageUrl = "https://scontent.fopo4-2.fna.fbcdn.net/v/t1.18169-9/11924268_878778882158348_4837939208486181417_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=174925&_nc_eui2=AeFHyU6IQdrx6TQvylsPWpTUyOPuuww3QbfI4-67DDdBt0eokzLeoEDPCtJa82GLgg2Zgcq_ntpc_xq0BRzwubrH&_nc_ohc=9BIIu_axbPUAX8botKT&_nc_ht=scontent.fopo4-2.fna&oh=822a51f9e3e6eb2a37dcccfbf8dee8ec&oe=60C10DAD";
                         history.setImageURL(ImageUrl);
 
                         historyList.add(history);

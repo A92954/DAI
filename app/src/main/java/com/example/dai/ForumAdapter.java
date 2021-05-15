@@ -37,7 +37,7 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ViewHolder> 
         Picasso.get()
                 .load(forum
                         .getImage_URL())
-                .resize(300, 300)
+                .resize(700, 500)
                 .centerInside()
                 .into(holder.imageID);
 

@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,11 +40,14 @@ public class Profile extends AppCompatActivity {
     private String url;
     Dialog failure;
     Dialog loading;
+    Dialog sucess;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+
 
 
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
@@ -126,9 +128,9 @@ public class Profile extends AppCompatActivity {
 
     }
 
-    private void getProfileInfo(String text) {
+    private void getProfileInfo(String text1) {
         final ProgressDialog progressDialog = new ProgressDialog(this);
-        url = "http://93.108.170.117:8080/DAI-end/child?id=" + text;
+        url = "http://93.108.170.117:8080/DAI-end/child?id=1";
 
         //LOADING SCREEN
         loading = new Dialog(this);
@@ -145,11 +147,11 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject jsonObject) {
                 try{
-                    TextView nome = (TextView) findViewById(R.id.nomeID);
-                    nome.setText(jsonObject.getString("child_name"));
+                    EditText nome2 = (EditText) findViewById(R.id.nomeID);
+                    nome.setText(jsonObject.optString("child_name"));
 
-                    TextView morada = (TextView) findViewById(R.id.districtID);
-                    morada.setText(jsonObject.getString("address"));
+                    EditText morada2 = (EditText) findViewById(R.id.districtID);
+                    morada.setText(jsonObject.optString("address"));
 
 
                 } catch(Exception e) {

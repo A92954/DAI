@@ -237,7 +237,7 @@
                 android:background="@drawable/round_button"
                 android:backgroundTint="@color/button_blue"
                 android:fontFamily="@font/patrick_hand"
-                android:text="Reconhecimento Facial"
+                android:text="Impressão Digital"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"

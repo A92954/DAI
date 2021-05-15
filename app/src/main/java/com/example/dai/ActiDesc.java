@@ -1,7 +1,6 @@
 package com.example.dai;
 
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -66,7 +65,7 @@ public class ActiDesc extends AppCompatActivity {
 
     //FETCH DO INFO
     private void getInfo(String text) {
-        final ProgressDialog progressDialog = new ProgressDialog(this);
+
         url = "http://93.108.170.117:8080/DAI-end/activity?id=" + text;
 
         //LOADING SCREEN
@@ -83,6 +82,7 @@ public class ActiDesc extends AppCompatActivity {
         JsonObjectRequest jr = new JsonObjectRequest(Request.Method.GET,url,null,new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject jsonObject) {
+
                 try{
 
                     name = (TextView) findViewById(R.id.activTitleID);
@@ -96,19 +96,19 @@ public class ActiDesc extends AppCompatActivity {
                     }
 
                     local = (TextView) findViewById(R.id.localID);
-                    local.setText(jsonObject.getString("local"));
+                    local.setText(jsonObject.optString("local"));
 
                     institution = (TextView) findViewById(R.id.institutionID);
-                    institution.setText(jsonObject.getString("institution"));
+                    institution.setText(jsonObject.optString("institution"));
 
                     dia = (TextView) findViewById(R.id.dayID);
-                    dia.setText(jsonObject.getString("schedule"));
+                    dia.setText(jsonObject.optString("schedule"));
 
-                    String duracao = jsonObject.getString("start") + " - " + jsonObject.getString("end");
+                    String duracao = jsonObject.optString("start") + " - " + jsonObject.optString("end");
                     hora = (TextView) findViewById(R.id.horaID);
                     hora.setText(duracao);
 
-                    String imageURL = "https://images.uncyc.org/wikinet/3/32/Chad_sem_Virgin.png";
+                    String imageURL = "http://93.108.170.117:8080/DAI-end/Images/" + jsonObject.optString("file");
                     ImageView imageId = (ImageView) findViewById(R.id.activImage);
 
                     Picasso.get()

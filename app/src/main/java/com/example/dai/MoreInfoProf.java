@@ -146,7 +146,7 @@ public class MoreInfoProf extends AppCompatActivity {
 
     private void getProfileMoreInfo(String text) {
         final ProgressDialog progressDialog = new ProgressDialog(this);
-        url = "http://93.108.170.117:8080/DAI-end/child?id=" + text;
+        url = "http://93.108.170.117:8080/DAI-end/child?id=1";
 
         //LOADING SCREEN
         loading = new Dialog(this);
@@ -163,7 +163,7 @@ public class MoreInfoProf extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject jsonObject) {
                 try{
-                    TextView idade = (TextView) findViewById(R.id.ageID);
+                    EditText idade = (EditText) findViewById(R.id.ageID);
                     idade.setText(jsonObject.optString("child_age"));
 
                     TextView profissao = (TextView) findViewById(R.id.profissionID);

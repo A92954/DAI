@@ -132,16 +132,16 @@ public class MainPage extends AppCompatActivity {
             }
         });
 
-        ImageView logoutBtn = (ImageView) findViewById(R.id.logoutBtn);
-        logoutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SessionManagement session = new SessionManagement(MainPage.this);
-                session.removeSession();
-                Intent startIntent = new Intent(getApplicationContext(), Login.class);
-                startActivity(startIntent);
-            }
-        });
+      ImageView logoutBtn = (ImageView) findViewById(R.id.logoutBtn);
+      logoutBtn.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              SessionManagement session = new SessionManagement(MainPage.this);
+              session.removeSession();
+              Intent startIntent = new Intent(getApplicationContext(), Login.class);
+              startActivity(startIntent);
+          }
+      });
         //END OF BUTTON SECTION
 
     }
