@@ -1,12 +1,20 @@
 package com.example.dai;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,9 +22,11 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,6 +36,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.dai.Backend.API;
+import com.example.dai.Backend.RetrofitClient;
+import com.example.dai.Backend.SessionManagement;
 import com.google.android.gms.security.ProviderInstaller;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -35,10 +48,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.IllegalFormatCodePointException;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
 
 
 public class History extends AppCompatActivity {
@@ -48,10 +70,33 @@ public class History extends AppCompatActivity {
     private DividerItemDecoration dividerItemDecoration;
     private List<HistoryModel> historyList;
     private RecyclerView.Adapter adapter;
-    private String url = "http://93.108.170.117:8080/DAI-end/child_activity?id_child=1";
+    //private String url = "http://93.108.170.117:8080/DAI-end/child_activity?id_child=1";
     Dialog myDialog;
     Dialog loading;
 
+    Button upload;
+
+    private static final int PICK_IMAGE_REQUEST = 9544;
+
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
+    private static String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
+
+    SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+    SessionManagement session = new SessionManagement(this);
+
+    int id_child_int = session.getID_CHILD();
+    String id_child = String.valueOf(id_child_int);
+
+    String url = "http://93.108.170.117:8080/DAI-end/child_activity?" +id_child;
+
+    String part_image;
+    Uri selectedImage;
+
+    //private static final int STORAGE_PERMISSION_CODE = 1111;
+    //private static final int PICK_IMAGE_REQUEST = 11;
 
 
     @Override
@@ -78,6 +123,9 @@ public class History extends AppCompatActivity {
         updateAndroidSecurityProvider();
         getHistory();
         //FIM HISTORICO
+
+
+        //requestStoragePermission();
 
 
 
@@ -108,7 +156,45 @@ public class History extends AppCompatActivity {
                 startActivity(startIntent);
             }
         });
+
+
+        //upload = (Button) myDialog.findViewById(R.id.uploadBtn);
+
+        /*upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updatePhoto();
+                pick();
+                uploadImage();
+            }
+        });*/
     }
+
+    /*private void requestStoragePermission() {
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+            return;
+
+        ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == STORAGE_PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Permission granted", Toast.LENGTH_LONG).show();
+            }
+            else {
+                Toast.makeText(this, "Permission not granted", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    private void showFileChooser() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+    }*/
 
     //FETCH DO HISTORICO
     public void getHistory(){
@@ -250,6 +336,86 @@ public class History extends AppCompatActivity {
         });
     }
 
+
+    public void updatePhoto() {
+        startActivity(new Intent(History.this, History.class));
+    }
+
+    public void pick() {
+        verifyStoragePermissions(History.this);
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*");
+        startActivityForResult(Intent.createChooser(intent, "Open Gallery"), PICK_IMAGE_REQUEST);
+    }
+
+    // Method to get the absolute path of the selected image from its URI
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                selectedImage = data.getData();                                                         // Get the image file URI
+                String[] imageProjection = {MediaStore.Images.Media.DATA};
+                Cursor cursor = getContentResolver().query(selectedImage, imageProjection, null, null, null);
+                if(cursor != null) {
+                    cursor.moveToFirst();
+                    int indexImage = cursor.getColumnIndex(imageProjection[0]);
+                    part_image = cursor.getString(indexImage);
+                    // Get the image file absolute path
+                    Bitmap bitmap = null;
+                    try {
+                        bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    // Upload the image to the remote database
+    public void uploadImage() {
+        File imageFile = new File(part_image);                                                          // Create a file using the absolute path of the image
+        RequestBody reqBody = RequestBody.create(MediaType.parse("multipart/form-file"), imageFile);
+        MultipartBody.Part partImage = MultipartBody.Part.createFormData("file", imageFile.getName(), reqBody);
+        API api = RetrofitClient.getInstance().getAPI();
+        Call<ResponseBody> upload = api.uploadImage(partImage);
+        upload.enqueue(new Callback<ResponseBody>() {
+
+            protected void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.isSuccess()) {
+                    Toast.makeText(History.this, "Image Uploaded", Toast.LENGTH_SHORT).show();
+                    Intent main = new Intent(History.this, History.class);
+                    main.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(main);
+                }
+            }
+
+            @Override
+            public void onResponse(Call<ResponseBody> call, retrofit2.Response<ResponseBody> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(History.this, "Request failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public static void verifyStoragePermissions(History activity) {
+        // Check if we have write permission
+        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE
+            );
+        }
+    }
 
     private void updateAndroidSecurityProvider() { try { ProviderInstaller.installIfNeeded(this); } catch (Exception e) { e.getMessage(); }}
 

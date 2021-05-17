@@ -48,8 +48,6 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
 
-
-
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         SessionManagement session = new SessionManagement(this);
 
